@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | IP Address Tracker</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Rubik"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <main>
+      <section class="ip-address container">
+        <h1>IP Address Tracker</h1>
+        <div class="ip-address__form">
+          <form onsubmit="handleSubmit(event);">
+            <input
+              type="text"
+              class="ip-address__form-input"
+              value=""
+              placeholder="Search for any IP address or domain "
+            />
+            <button type="submit" class="ip-address__form-submit">
+              <object data="images/icon-arrow.svg" type="image/svg+xml">
+                Submit Arrow
+              </object>
+            </button>
+          </form>
+        </div>
+        <ul class="ip-address__info">
+          <li>
+            <h3>IP Address</h3>
+            <span class="ip-address__info-ip"></span>
+          </li>
+          <li>
+            <h3>Location</h3>
+            <span class="ip-address__info-location"></span>
+          </li>
+          <li>
+            <h3>Timezone</h3>
+            <span class="ip-address__info-timezone"></span>
+          </li>
+          <li>
+            <h3>ISP</h3>
+            <span class="ip-address__info-isp"></span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- add offset value dynamically using the API -->
+      <section class="map__wrapper container">
+        <div id="mapid"></div>
+      </section>
+    </main>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">EasonLin0716</a>.
+    </div>
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
