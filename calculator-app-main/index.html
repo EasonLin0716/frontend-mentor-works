@@ -12,42 +12,57 @@
       href="./images/favicon-32x32.png"
     />
 
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Spartan"
+    />
     <title>Frontend Mentor | Calculator app</title>
 
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link id="theme" rel="stylesheet" href="assets/css/theme-1.css" />
   </head>
   <body>
     <main>
-      <section class="app-topbar">
-        <h1>calc</h1>
-        <div>
-          <span>THEME</span>
-          <span>SWITCH BAR</span>
-        </div>
-      </section>
-      <section class="app-display">
-        <input type="text" />
-      </section>
-      <section class="app-actions">
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button>DEL</button>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>+</button>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>-</button>
-        <button>.</button>
-        <button>0</button>
-        <button>/</button>
-        <button>x</button>
-        <button>RESET</button>
-        <button>=</button>
-      </section>
+      <div class="container">
+        <section class="top-bar">
+          <h1>calc</h1>
+          <div class="switch-bar">
+            <div></div>
+            <ul class="switch-bar__numbers">
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+            </ul>
+            <span class="switch-bar__theme">THEME</span>
+            <div class="switch-bar__toggler-outer">
+              <div class="switch-bar__toggler-inner"></div>
+            </div>
+          </div>
+        </section>
+        <section class="app-display">
+          <input type="text" />
+        </section>
+        <section class="app-actions">
+          <button class="btn btn--primary">7</button>
+          <button class="btn btn--primary">8</button>
+          <button class="btn btn--primary">9</button>
+          <button class="btn btn--secondary">DEL</button>
+          <button class="btn btn--primary">4</button>
+          <button class="btn btn--primary">5</button>
+          <button class="btn btn--primary">6</button>
+          <button class="btn btn--primary">+</button>
+          <button class="btn btn--primary">1</button>
+          <button class="btn btn--primary">2</button>
+          <button class="btn btn--primary">3</button>
+          <button class="btn btn--primary">-</button>
+          <button class="btn btn--primary">.</button>
+          <button class="btn btn--primary">0</button>
+          <button class="btn btn--primary">/</button>
+          <button class="btn btn--primary">x</button>
+          <button class="btn btn--secondary">RESET</button>
+          <button class="btn btn--danger">=</button>
+        </section>
+      </div>
     </main>
 
     <div class="attribution">
