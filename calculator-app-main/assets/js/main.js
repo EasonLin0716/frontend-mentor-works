@@ -10,7 +10,6 @@ function changeTheme() {
     return false;
   }
   const themeNumber = Number(theme.href.replace(".css", "").slice(-1));
-  console.log(themeNumber);
   if (Number.isNaN(themeNumber) || themeNumber > 3 || themeNumber < 1) {
     console.error("[changeTheme Error] theme number is not valid");
     return false;
