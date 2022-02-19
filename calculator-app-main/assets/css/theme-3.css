@@ -1,0 +1,18 @@
+:root {
+  --main-bg: hsl(268, 75%, 9%);
+  --keypad-bg: hsl(268, 71%, 12%);
+  --screen-bg: hsl(268, 71%, 12%);
+  --key-bg: hsl(268, 47%, 21%);
+  --key-shadow: hsl(290, 70%, 36%);
+  --key-text-color: hsl(52, 100%, 62%);
+  --key-bg-danger: hsl(176, 100%, 44%);
+  --key-shadow-danger: hsl(177, 92%, 70%);
+  --key-text-color-danger: hsl(198, 20%, 13%);
+  --key-bg-secondary: hsl(281, 89%, 26%);
+  --key-shadow-secondary: hsl(285, 91%, 52%);
+  --key-text-color-secondary: #fff;
+  --switch-bar-padding-left: 33px;
+  --switch-bar-width: 50px;
+  --switch-bar-text-color: hsl(52, 100%, 62%);
+  --display-color: hsl(52, 100%, 62%);
+}
