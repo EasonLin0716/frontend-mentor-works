@@ -40,27 +40,31 @@
           </div>
         </section>
         <section class="app-display">
-          <div class="app-display__content">0</div>
+          <div class="app-display__content"></div>
         </section>
         <section class="app-actions">
-          <button class="btn btn--primary">7</button>
-          <button class="btn btn--primary">8</button>
-          <button class="btn btn--primary">9</button>
-          <button class="btn btn--secondary">DEL</button>
-          <button class="btn btn--primary">4</button>
-          <button class="btn btn--primary">5</button>
-          <button class="btn btn--primary">6</button>
-          <button class="btn btn--primary">+</button>
-          <button class="btn btn--primary">1</button>
-          <button class="btn btn--primary">2</button>
-          <button class="btn btn--primary">3</button>
-          <button class="btn btn--primary">-</button>
-          <button class="btn btn--primary">.</button>
-          <button class="btn btn--primary">0</button>
-          <button class="btn btn--primary">/</button>
-          <button class="btn btn--primary">x</button>
-          <button class="btn btn--secondary app-actions__reset">RESET</button>
-          <button class="btn btn--danger app-actions__equals">=</button>
+          <button class="btn btn--primary" data-number="7">7</button>
+          <button class="btn btn--primary" data-number="8">8</button>
+          <button class="btn btn--primary" data-number="9">9</button>
+          <button id="back-space-btn" class="btn btn--secondary">DEL</button>
+          <button class="btn btn--primary" data-number="4">4</button>
+          <button class="btn btn--primary" data-number="5">5</button>
+          <button class="btn btn--primary" data-number="6">6</button>
+          <button class="btn btn--primary" data-operator="add">+</button>
+          <button class="btn btn--primary" data-number="1">1</button>
+          <button class="btn btn--primary" data-number="2">2</button>
+          <button class="btn btn--primary" data-number="3">3</button>
+          <button class="btn btn--primary" data-operator="subtract">-</button>
+          <button id="dot-btn" class="btn btn--primary">.</button>
+          <button class="btn btn--primary" data-number="0">0</button>
+          <button class="btn btn--primary" data-operator="divide">/</button>
+          <button class="btn btn--primary" data-operator="times">x</button>
+          <button id="reset-btn" class="btn btn--secondary app-actions__reset">
+            RESET
+          </button>
+          <button id="equal-btn" class="btn btn--danger app-actions__equals">
+            =
+          </button>
         </section>
       </div>
     </main>
