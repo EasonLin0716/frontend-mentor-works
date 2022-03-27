@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Interactive rating component</title>
+
+    <link href="https://unpkg.com/@master/normal.css" rel="stylesheet" />
+    <script src="https://unpkg.com/@master/style"></script>
+    <script src="https://unpkg.com/@master/styles"></script>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      :root {
+        --orange: hsl(25, 97%, 53%);
+        --medium-grey: hsl(216, 12%, 54%);
+        --light-grey: hsl(217, 12%, 63%);
+        --dark-blue: #1f2630;
+        --dark-blue-2: #272e38;
+        --very-dark-blue: hsl(216, 12%, 8%);
+      }
+      @font-face {
+        font-family: "Overpass";
+        src: url("./font/Overpass-Regular.ttf");
+      }
+    </style>
+  </head>
+  <body>
+    <main
+      class="font-family:Overpass w:full h:full bg:$(very-dark-blue) d:flex justify-content:center align-items:center"
+    >
+      <section
+        class="p:28 bg:$(dark-blue) font-color:$(light-grey) w:calc(100%-32px) max-w:420 border-radius:24"
+      >
+        <div id="asking-section">
+          <div class="bg:$(dark-blue-2) d:inline-block p:16 border-radius:50%">
+            <img src="images/icon-star.svg" alt="" />
+          </div>
+          <h1 class="f:#fff m:16;0 ls:1.2">How did we do?</h1>
+          <p class="lh:1.5">
+            Please let us know how we did with your support request. All
+            feedback is appreciated to help us improve our offering!
+          </p>
+          <ul
+            id="ranking-points"
+            class="d:flex justify-content:space-between my:24"
+          >
+            <li
+              class="bg:$(dark-blue-2) w:48 h:48 t:center border-radius:50% f:bold cursor:pointer bg:$(orange):hover font-color:#fff:hover ~all;300ms;ease"
+            >
+              <span class="position:rel top:16 pointer-events:none">1</span>
+            </li>
+            <li
+              class="bg:$(dark-blue-2) w:48 h:48 t:center border-radius:50% f:bold cursor:pointer bg:$(orange):hover font-color:#fff:hover ~all;300ms;ease"
+            >
+              <span class="position:rel top:16 pointer-events:none">2</span>
+            </li>
+            <li
+              class="bg:$(dark-blue-2) w:48 h:48 t:center border-radius:50% f:bold cursor:pointer bg:$(orange):hover font-color:#fff:hover ~all;300ms;ease"
+            >
+              <span class="position:rel top:16 pointer-events:none">3</span>
+            </li>
+            <li
+              class="bg:$(dark-blue-2) w:48 h:48 t:center border-radius:50% f:bold cursor:pointer bg:$(orange):hover font-color:#fff:hover ~all;300ms;ease"
+            >
+              <span class="position:rel top:16 pointer-events:none">4</span>
+            </li>
+            <li
+              class="bg:$(dark-blue-2) w:48 h:48 t:center border-radius:50% f:bold cursor:pointer bg:$(orange):hover font-color:#fff:hover ~all;300ms;ease"
+            >
+              <span class="position:rel top:16 pointer-events:none">5</span>
+            </li>
+          </ul>
+          <button
+            id="submit-btn"
+            class="bg:$(orange) t:uppercase f:#fff w:full border-radius:24 py:12 ls:1.5 cursor:pointer bg:#fff:hover font-color:$(orange):hover ~all;300ms;ease"
+          >
+            Submit
+          </button>
+        </div>
+        <div id="answer-section" class="d:none">
+          <div class="t:center mt:16">
+            <img
+              class="d:inline-block"
+              src="images/illustration-thank-you.svg"
+              alt=""
+            />
+          </div>
+          <div class="m:16;auto;24;auto t:center">
+            <p
+              class="d:inline-block font-color:$(orange) bg:$(dark-blue-2) p:8;12 border-radius:24"
+            >
+              You selected <span id="ranked-point">4</span> out of 5
+            </p>
+          </div>
+          <h2 class="f:#fff ls:1.2 t:center mb:20">Thank you!</h2>
+          <p class="t:center mb:16">
+            We appreciate you taking the time to give a rating. If you ever need
+            more support, don’t hesitate to get in touch!
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      let point = "5";
+      const rankingPoints = document.querySelectorAll("#ranking-points li");
+      rankingPoints.forEach((rankingPoint) => {
+        rankingPoint.addEventListener("click", (e) => {
+          rankingPoints.forEach((rankingPoint) => {
+            rankingPoint.classList.remove("bg:$(light-grey)!");
+            rankingPoint.classList.remove("color:#fff!");
+          });
+          e.target.classList.add("bg:$(light-grey)!");
+          e.target.classList.add("color:#fff!");
+          point = e.target.textContent;
+        });
+      });
+
+      const askingSection = document.querySelector("#asking-section");
+      const answerSection = document.querySelector("#answer-section");
+      const rankedPoint = document.querySelector("#ranked-point");
+      const submitBtn = document.querySelector("#submit-btn");
+      submitBtn.addEventListener("click", () => {
+        rankedPoint.textContent = point;
+        askingSection.classList.add("d:none");
+        answerSection.classList.remove("d:none");
+      });
+    </script>
+  </body>
+</html>
