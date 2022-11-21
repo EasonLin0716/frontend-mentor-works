@@ -36,7 +36,7 @@ const updateSearchInputInDelay = debounce((event) => {
       </select>
     </div>
     <section class="grid grid-cols-4 gap-16">
-      <router-link v-for="(flag, index) in filteredFlagData" :key="index" :to="'/' + flag.name.common" class="bg-white rounded-lg shadow-md overflow-hidden">
+      <RouterLink v-for="(flag, index) in filteredFlagData" :key="index" :to="'/' + flag.name.common" class="bg-white rounded-lg shadow-md overflow-hidden">
         <img :src="flag.flags.png" class="w-full aspect-video object-cover" alt="">
         <div class="p-6">
           <h4 class="font-bold mb-2">{{ flag.name.common }}</h4>
@@ -52,7 +52,7 @@ const updateSearchInputInDelay = debounce((event) => {
             </li>
           </ul>
         </div>
-      </router-link>
+      </RouterLink>
     </section>
   </div>
 </template>
