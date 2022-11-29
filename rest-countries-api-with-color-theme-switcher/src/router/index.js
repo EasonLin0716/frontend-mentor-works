@@ -1,15 +1,15 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import Home from '../components/Home.vue';
+import AllFlags from '../components/AllFlags.vue';
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    name: 'AllFlags',
+    component: AllFlags,
   },
   {
     path: '/:name',
-    name: 'About',
-    component: () => import('../components/About.vue'),
+    name: 'FlagDetail',
+    component: () => import('../components/FlagDetail.vue'),
   }
 ];
 const router = createRouter({

@@ -23,3 +23,8 @@
   background-size: 14px;
   background-position: right 1.25rem center;
 }
+
+.flag-detail__img {
+  @apply self-baseline;
+  aspect-ratio: 3 / 2;
+}
