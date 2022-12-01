@@ -1,9 +1,11 @@
 <script setup>
 import AppHeader from './components/AppHeader.vue'
+import { useThemeStore } from './store'
+const theme = useThemeStore()
 </script>
 
 <template>
-  <div id="app">
+  <div id="app" :class="theme.isDark ? 'bg-[var(--dark-mode-very-dark-blue)]' : ''">
     <AppHeader />
     <router-view></router-view>
   </div>
