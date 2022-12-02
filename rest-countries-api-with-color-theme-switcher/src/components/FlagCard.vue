@@ -1,4 +1,5 @@
 <script setup>
+import FlagCardInfo from './FlagCardInfo.vue'
 import { useThemeStore } from '../store'
 const theme = useThemeStore()
 const props = defineProps({
@@ -14,15 +15,9 @@ const props = defineProps({
     <div :class="theme.isDark ? 'bg-[var(--dark-mode-dark-blue)]' : ''" class="p-6">
         <h4 :class="theme.isDark ? 'text-white' : ''" class="font-bold mb-2">{{ flag.name.common }}</h4>
         <ul class="flex flex-col gap-1">
-            <li class="flex text-xs">
-                <p class="font-bold mr-1">Population:</p><span>{{ flag.population }}</span>
-            </li>
-            <li class="flex text-xs">
-                <p class="font-bold mr-1">Region:</p><span>{{ flag.region }}</span>
-            </li>
-            <li v-if="flag.capital" class="flex text-xs">
-                <p class="font-bold mr-1">Capital:</p><span>{{ flag.capital[0] }}</span>
-            </li>
+            <FlagCardInfo title="Population" :text="flag.population" />
+            <FlagCardInfo title="Region" :text="flag.region" />
+            <FlagCardInfo v-if="flag.capital" title="Capital" :text="flag.capital[0]" />
         </ul>
     </div>
 </template>

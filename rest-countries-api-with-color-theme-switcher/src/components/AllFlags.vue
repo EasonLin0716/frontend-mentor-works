@@ -3,6 +3,8 @@ import { ref, computed } from 'vue'
 import { debounce } from '../plugins/utils.js'
 import flagApi from '../api/flagApi'
 import FlagCard from './FlagCard.vue'
+import { useThemeStore } from '../store'
+const theme = useThemeStore()
 
 const allFlagData = ref([])
 const filteredFlagData = computed(() => {
@@ -27,9 +29,9 @@ const updateSearchInputInDelay = debounce((event) => {
 <template>
   <div class="max-w-7xl mx-auto py-8">
     <div class="flex justify-between mb-8">
-      <div class="px-7 py-4 bg-white shadow rounded">
-        <i class="fa-solid fa-magnifying-glass text-[var(--light-mode-dark-gray)]"></i>
-        <input class="pl-7 placeholder:text-[var(--light-mode-dark-gray)] focus:outline-none w-96" type="text" placeholder="Search for a country..." @input="updateSearchInputInDelay" />
+      <div :class="theme.isDark ? 'bg-[var(--dark-mode-dark-blue)]' : 'bg-white'" class="px-7 py-4 shadow rounded">
+        <i :class="theme.isDark ? 'text-white' : 'text-[var(--light-mode-dark-gray)]'" class="fa-solid fa-magnifying-glass"></i>
+        <input :class="theme.isDark ? 'bg-[var(--dark-mode-dark-blue)] placeholder:text-white' : 'placeholder:text-[var(--light-mode-dark-gray)]'" class="pl-7 focus:outline-none w-96" type="text" placeholder="Search for a country..." @input="updateSearchInputInDelay" />
       </div>
       <select v-model="selectInput" class="home-select">
         <option value="">Filter by Region</option>

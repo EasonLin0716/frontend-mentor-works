@@ -17,6 +17,10 @@
   background-color: var(--light-mode-very-light-gray);
 }
 
+html, body {
+  @apply w-full h-full;
+}
+
 .home-select {
   @apply px-5 py-4 bg-white shadow rounded appearance-none active:outline-none focus:outline-none w-52 bg-no-repeat;
   background-image: url(/src/assets/icons/angle-down-solid.svg);

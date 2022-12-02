@@ -5,9 +5,9 @@ const theme = useThemeStore()
 </script>
 
 <template>
-  <div id="app" :class="theme.isDark ? 'bg-[var(--dark-mode-very-dark-blue)]' : ''">
+  <div :class="theme.isDark ? 'bg-[var(--dark-mode-very-dark-blue)]' : ''" class="flex flex-col h-full">
     <AppHeader />
-    <router-view></router-view>
+    <router-view class="grow"></router-view>
   </div>
 </template>
 

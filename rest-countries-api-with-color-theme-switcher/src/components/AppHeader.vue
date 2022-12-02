@@ -5,8 +5,8 @@ const theme = useThemeStore()
 
 <template>
     <header 
-      :class="theme.isDark ? 'bg-[var(--dark-mode-dark-blue)]' : ''"
-      class="bg-white shadow-md"
+      :class="theme.isDark ? 'bg-[var(--dark-mode-dark-blue)]' : 'bg-white'"
+      class="shadow-md"
     >
       <div class="max-w-7xl mx-auto p-6 flex justify-between items-center">
         <h1 :class="{ 'text-white': theme.isDark }" class="text-2xl font-extrabold">Where in the world?</h1>
