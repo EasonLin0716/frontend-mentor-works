@@ -31,7 +31,7 @@ watch(
         imgSrc: data.flags.png,
         commonName: data.name.common,
         nativeName: getNativeName(data.name.nativeName),
-        population: data.population,
+        population: data.population.toLocaleString(),
         region: data.region,
         subRegion: data.subRegion,
         capital: data.capital ? data.capital[0] : '',
@@ -54,17 +54,17 @@ watch(
 </script>
 
 <template>
-  <div class="max-w-7xl mx-auto px-6 py-12">
+  <div class="max-w-7xl mx-auto w-full px-6 py-12">
     <RouterLink :class="theme.isDark ? 'bg-[var(--dark-mode-dark-blue)] text-white' : 'bg-white'"  class="gap-3 px-8 py-2 shadow-md rounded inline-flex items-center mb-12" to="/">
       <i class="fa-solid fa-arrow-left-long"></i>
       <span>Back</span>
     </RouterLink>
-    <div class="flex xl:gap-24 md:gap-12 gap-6 md:flex-row flex-col">
+    <div class="flex lg:gap-24 md:gap-12 gap-6 md:flex-row flex-col">
       <img :src="flagData.imgSrc" class="flag-detail__img md:w-auto w-full" alt="" width="480">
-      <div class="py-0 xl:py-8 flex flex-col justify-between">
-        <div class="xl:mb-0 mb-6">
+      <div class="py-0 lg:py-8 flex flex-col justify-between">
+        <div class="lg:mb-0 mb-6">
           <h2 :class="theme.isDark ? 'text-white' : ''" class="text-2xl font-bold mb-6">{{ flagData.commonName }}</h2>
-          <div class="flex xl:flex-row xl:gap-24 gap-6 flex-col">
+          <div class="flex lg:flex-row lg:gap-24 gap-6 flex-col">
             <ul>
               <DetailInfo title="Native Name:" :text="flagData.nativeName" />
               <DetailInfo title="Population:" :text="flagData.population" />

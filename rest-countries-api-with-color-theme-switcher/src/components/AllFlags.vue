@@ -29,7 +29,7 @@ const updateSearchInputInDelay = debounce((event) => {
 </script>
 
 <template>
-  <div class="max-w-7xl mx-auto px-6 py-8">
+  <div class="max-w-7xl w-full mx-auto px-6 py-8">
     <div class="flex flex-wrap justify-between mb-8 gap-8">
       <div :class="theme.isDark ? 'bg-[var(--dark-mode-dark-blue)]' : 'bg-white'" class="px-7 py-4 shadow rounded md:w-auto w-full flex items-center">
         <i :class="theme.isDark ? 'text-white' : 'text-[var(--light-mode-dark-gray)]'" class="fa-solid fa-magnifying-glass"></i>
