@@ -5,7 +5,7 @@ const theme = useThemeStore()
 </script>
 
 <template>
-  <div :class="theme.isDark ? 'bg-[var(--dark-mode-very-dark-blue)]' : ''" class="flex flex-col h-full">
+  <div :class="theme.isDark ? 'bg-[var(--dark-mode-very-dark-blue)]' : ''" class="flex flex-col min-h-full">
     <AppHeader />
     <router-view class="grow"></router-view>
   </div>

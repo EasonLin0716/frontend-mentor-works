@@ -59,12 +59,12 @@ watch(
       <i class="fa-solid fa-arrow-left-long"></i>
       <span>Back</span>
     </RouterLink>
-    <div class="flex gap-24">
-      <img :src="flagData.imgSrc" class="flag-detail__img" alt="" width="480">
-      <div class="py-8 flex flex-col justify-between">
-        <div>
+    <div class="flex xl:gap-24 md:gap-12 gap-6 md:flex-row flex-col">
+      <img :src="flagData.imgSrc" class="flag-detail__img md:w-auto w-full" alt="" width="480">
+      <div class="py-0 xl:py-8 flex flex-col justify-between">
+        <div class="xl:mb-0 mb-6">
           <h2 :class="theme.isDark ? 'text-white' : ''" class="text-2xl font-bold mb-6">{{ flagData.commonName }}</h2>
-          <div class="flex gap-24">
+          <div class="flex xl:flex-row xl:gap-24 gap-6 flex-col">
             <ul>
               <DetailInfo title="Native Name:" :text="flagData.nativeName" />
               <DetailInfo title="Population:" :text="flagData.population" />
@@ -79,10 +79,10 @@ watch(
             </ul>
           </div>
         </div>
-        <div v-if="borderData.length" class="flex items-center gap-4">
-          <p :class="theme.isDark ? 'text-white' : ''" class="font-bold">Border Countries:</p>
+        <div v-if="borderData.length" class="flex items-center gap-4 flex-wrap">
+          <p :class="theme.isDark ? 'text-white' : ''" class="font-bold w-full md:w-auto">Border Countries:</p>
           <div class="flex gap-3 flex-wrap">
-            <RouterLink v-for="(border, index) in borderData" :to="'/' + border" :key="index" :class="theme.isDark ? 'text-white border-[var(--dark-mode-dark-blue)] bg-[var(--dark-mode-dark-blue)]' : ''" class="border border-gray-300 shadow py-1 px-5">{{ border }}</RouterLink>
+            <RouterLink v-for="(border, index) in borderData" :to="'/' + border" :key="index" :class="theme.isDark ? 'text-white border-[var(--dark-mode-dark-blue)] bg-[var(--dark-mode-dark-blue)]' : ''" class="border border-gray-300 shadow py-1 px-5 rounded">{{ border }}</RouterLink>
           </div>
         </div>
       </div>

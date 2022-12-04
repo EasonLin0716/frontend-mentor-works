@@ -29,15 +29,15 @@ const updateSearchInputInDelay = debounce((event) => {
 </script>
 
 <template>
-  <div class="max-w-7xl mx-auto py-8">
-    <div class="flex justify-between mb-8">
-      <div :class="theme.isDark ? 'bg-[var(--dark-mode-dark-blue)]' : 'bg-white'" class="px-7 py-4 shadow rounded">
+  <div class="max-w-7xl mx-auto px-6 py-8">
+    <div class="flex flex-wrap justify-between mb-8 gap-8">
+      <div :class="theme.isDark ? 'bg-[var(--dark-mode-dark-blue)]' : 'bg-white'" class="px-7 py-4 shadow rounded md:w-auto w-full flex items-center">
         <i :class="theme.isDark ? 'text-white' : 'text-[var(--light-mode-dark-gray)]'" class="fa-solid fa-magnifying-glass"></i>
-        <input :class="theme.isDark ? 'bg-[var(--dark-mode-dark-blue)] placeholder:text-white' : 'placeholder:text-[var(--light-mode-dark-gray)]'" class="pl-7 focus:outline-none w-96" type="text" placeholder="Search for a country..." @input="updateSearchInputInDelay" />
+        <input :class="theme.isDark ? 'bg-[var(--dark-mode-dark-blue)] placeholder:text-white' : 'placeholder:text-[var(--light-mode-dark-gray)]'" class="pl-7 focus:outline-none w-96 flex-grow" type="text" placeholder="Search for a country..." @input="updateSearchInputInDelay" />
       </div>
       <AppSelect v-model="selectInput" :selections="regionData" />
     </div>
-    <section class="grid grid-cols-4 gap-16">
+    <section class="grid xl:grid-cols-4 md:grid-cols-2 gap-16">
       <RouterLink v-for="(flag, index) in filteredFlagData" :key="index" :to="'/' + flag.name.common" class="bg-white rounded-lg shadow-md overflow-hidden">
         <FlagCard :flag="flag" />
       </RouterLink>
