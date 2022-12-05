@@ -33,7 +33,7 @@ const updateSearchInputInDelay = debounce((event) => {
     <div class="flex flex-wrap justify-between mb-8 gap-8">
       <div :class="theme.isDark ? 'bg-[var(--dark-mode-dark-blue)]' : 'bg-white'" class="px-7 py-4 shadow rounded md:w-auto w-full flex items-center">
         <i :class="theme.isDark ? 'text-white' : 'text-[var(--light-mode-dark-gray)]'" class="fa-solid fa-magnifying-glass"></i>
-        <input :class="theme.isDark ? 'bg-[var(--dark-mode-dark-blue)] placeholder:text-white' : 'placeholder:text-[var(--light-mode-dark-gray)]'" class="pl-7 focus:outline-none w-96 flex-grow" type="text" placeholder="Search for a country..." @input="updateSearchInputInDelay" />
+        <input :class="theme.isDark ? 'bg-[var(--dark-mode-dark-blue)] placeholder:text-white text-white' : 'placeholder:text-[var(--light-mode-dark-gray)]'" class="pl-7 focus:outline-none w-96 flex-grow" type="text" placeholder="Search for a country..." @input="updateSearchInputInDelay" />
       </div>
       <AppSelect v-model="selectInput" :selections="regionData" />
     </div>
