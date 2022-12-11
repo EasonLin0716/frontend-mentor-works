@@ -48,7 +48,7 @@ The designs were created to the following widths:
   --rock-bgc: linear-gradient(to bottom, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
   --lizard-bgc: linear-gradient(to bottom, hsl(261, 73%, 60%), hsl(261, 72%, 63%));
   --spock-bgc: linear-gradient(to bottom, hsl(189, 59%, 53%), hsl(189, 58%, 57%));
-  --root-bgc: linear-gradient(to bottom, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  --root-bgc: linear-gradient(200deg, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
 
   font-family: 'Nunito Sans', sans-serif;
 }
@@ -60,16 +60,32 @@ html, body {
 }
 .scissors {
   background: var(--scissors-bgc);
+  top: -60px;
+  left: 100px;
 }
 .paper {
   background: var(--paper-bgc);
+  right: -60px;
+  top: 56px;
 }
 .rock {
   background: var(--rock-bgc);
+  bottom: -60px;
+  right: 0;
 }
 .lizard {
   background: var(--lizard-bgc);
+  left: 0;
+  bottom: -60px;
 }
 .spock {
   background: var(--spock-bgc);
+  top: 56px;
+  left: -60px;
+}
+.bg-pentagon {
+  @apply relative;
+  background-image: url('/images/bg-pentagon.svg');
+  width: 329px;
+  height: 313px;
 }

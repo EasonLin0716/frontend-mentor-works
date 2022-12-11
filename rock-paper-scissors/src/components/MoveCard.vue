@@ -8,8 +8,8 @@ defineProps({
 </script>
 
 <template>
-    <div class="w-32 h-32 flex justify-center items-center rounded-1/2">
-        <div class="w-24 h-24 rounded-1/2 flex justify-center items-center bg-white">
+    <div class="w-36 h-36 flex justify-center items-center rounded-1/2">
+        <div class="w-28 h-28 rounded-1/2 flex justify-center items-center bg-white">
             <img :src="'/images/icon-' + svgLink + '.svg'" :alt="svgLink" class="w-14 h-auto">
         </div>
     </div>
