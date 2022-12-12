@@ -2,6 +2,7 @@
 import { ref, computed } from 'vue'
 import ScoreBoard from './components/ScoreBoard.vue'
 import MoveCard from './components/MoveCard.vue'
+import GameRules from './components/GameRules.vue'
 const moveCardData = ref([
   {
     type: 'rock',
@@ -30,6 +31,7 @@ const score = ref(12)
       <MoveCard v-for="card in moveCardData" :key="card.type" :svgLink="card.type" :class="card.type" class="absolute" />
     </div>  
   </div>
+  <GameRules />
 </template>
 
 <style scoped>
