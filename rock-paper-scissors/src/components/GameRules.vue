@@ -10,7 +10,7 @@ const isDisplay = ref(false)
     >rules</button>
     <Transition name="fade">
         <div v-if="isDisplay" class="absolute w-full h-full top-0 left-0 bg-opacity-50 bg-black">
-            <div class="fixed top-1/2 left-1/2  bg-white pt-7 px-10 pb-10 rounded-lg" style="transform: translate(-50%, -50%)">
+            <div class="fixed top-1/2 left-1/2  bg-white pt-7 px-10 pb-10 rounded-lg -translate-x-1/2 -translate-y-1/2 transform" >
                 <div class="flex justify-between items-baseline">
                     <h4 class="uppercase text-3xl font-bold mb-4 text-[var(--dark-text)]">rules</h4>
                     <button class="text-4xl text-gray-400 font-bold" @click="isDisplay = false">&times;</button>
