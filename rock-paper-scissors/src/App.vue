@@ -21,6 +21,12 @@ const moveCardData = ref({
       beats: ['scissors', 'rock']
     }
   })
+const gameStateMap = computed(() => ({
+  0: 'pending',
+  1: 'you win',
+  2: 'you lose',
+  3: 'draw'
+}))
 const cardList = computed(() => {
   const res = []
   for (const k in moveCardData.value) {
@@ -28,16 +34,38 @@ const cardList = computed(() => {
   }
   return res
 })
-const score = ref(12)
+const score = ref(0)
+const gameState = ref(0)
 const playerChosenCard = ref('')
 const houseChosenCard = ref('')
 function playerChoose(type) {
   playerChosenCard.value = type
   houseChosenCard.value = getRandomCard()
+  setWinner()
+}
+function setWinner() {
+  const playMoveBeats = moveCardData.value[playerChosenCard.value].beats
+  const houseMoveBeats = moveCardData.value[houseChosenCard.value].beats
+  if (playMoveBeats.includes(houseChosenCard.value)) {
+    // player wins
+    gameState.value = 1
+    score.value++
+  } else if (houseMoveBeats.includes(playerChosenCard.value)) {
+    // house wins
+    gameState.value = 2
+  } else {
+    // draw
+    gameState.value = 3
+  }
 }
 function getRandomCard() {
   const randomIndex = (Math.random() * cardList.value.length) | 0
   return cardList.value[randomIndex]
+}
+function resetGame() {
+  gameState.value = 0
+  playerChosenCard.value = ''
+  houseChosenCard.value = ''
 }
 </script>
 
@@ -50,13 +78,19 @@ function getRandomCard() {
         <MoveCard 
           :svgLink="playerChosenCard" 
           :class="playerChosenCard" 
+          size="lg"
         />
+      </div>
+      <div>
+        <p class="uppercase text-white font-bold text-4xl">{{ gameStateMap[gameState] }}</p>
+        <button class="bg-white uppercase text-sm font-bold tracking-widest py-4" @click="resetGame">play again</button>
       </div>
       <div class="flex-1">
         <PickText :isPlayer="false" />
         <MoveCard 
           :svgLink="houseChosenCard" 
           :class="houseChosenCard" 
+          size="lg"
         />
       </div>
     </div>

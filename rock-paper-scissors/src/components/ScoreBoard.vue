@@ -18,7 +18,7 @@ const props = defineProps({
         </ul>
         <div class="bg-white rounded-xl px-12 py-4 ">
             <p class="text-[var(--score-text)] uppercase text-lg tracking-widest text-center">score</p>
-            <span class="text-[var(--dark-text)] text-6xl font-bold text-center">{{ score }}</span>
+            <span class="text-[var(--dark-text)] text-6xl font-bold text-center block">{{ score }}</span>
         </div>
     </div> 
 </template>
