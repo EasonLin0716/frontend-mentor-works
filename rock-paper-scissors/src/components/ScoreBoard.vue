@@ -12,7 +12,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="flex justify-between mb-10 px-8 py-6 border-solid border-4 border-[var(--header-outline)] rounded-2xl">
+    <div class="flex justify-between mb-10 px-8 py-6 border-solid border-4 border-[var(--header-outline)] rounded-2xl mx-auto max-w-[768px]">
         <ul>
             <li v-for="card in cardList" :index="card" class="text-white uppercase font-bold text-2xl leading-none ">{{ card }}</li>
         </ul>

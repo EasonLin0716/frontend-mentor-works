@@ -17,9 +17,9 @@ const sizeClasses = computed(() => ({
         img: 'w-12'
     },
     lg: {
-        container: 'w-52 h-52',
-        inner: 'w-40 h-40',
-        img: 'w-20'
+        container: 'w-72 h-72',
+        inner: 'w-56 h-56',
+        img: 'w-24'
     }
 }))
 </script>

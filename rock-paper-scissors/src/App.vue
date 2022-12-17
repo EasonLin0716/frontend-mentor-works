@@ -41,7 +41,9 @@ const houseChosenCard = ref('')
 function playerChoose(type) {
   playerChosenCard.value = type
   houseChosenCard.value = getRandomCard()
-  setWinner()
+  setTimeout(() => {
+    setWinner()
+  }, 2000)
 }
 function setWinner() {
   const playMoveBeats = moveCardData.value[playerChosenCard.value].beats
@@ -70,28 +72,27 @@ function resetGame() {
 </script>
 
 <template>
-  <div class="max-w-[768px] mx-auto pt-10">
+  <div class="max-w-[1024px] mx-auto pt-10">
     <ScoreBoard :cardList="cardList" :score="score" />
     <div v-if="playerChosenCard" class="flex justify-between">
-      <div class="flex-1">
-        <PickText />
-        <MoveCard 
-          :svgLink="playerChosenCard" 
-          :class="playerChosenCard" 
-          size="lg"
-        />
-      </div>
-      <div>
-        <p class="uppercase text-white font-bold text-4xl">{{ gameStateMap[gameState] }}</p>
-        <button class="bg-white uppercase text-sm font-bold tracking-widest py-4" @click="resetGame">play again</button>
-      </div>
-      <div class="flex-1">
-        <PickText :isPlayer="false" />
-        <MoveCard 
-          :svgLink="houseChosenCard" 
-          :class="houseChosenCard" 
-          size="lg"
-        />
+      <div class="grid grid-cols-3 gap-12 items-center justify-items-center mx-auto">
+          <PickText />
+          <div></div>
+          <PickText :isPlayer="false" />
+          <MoveCard 
+            :svgLink="playerChosenCard" 
+            :class="playerChosenCard" 
+            size="lg"
+          />
+          <div>
+            <p class="uppercase text-white font-bold text-5xl mb-4 text-center">{{ gameStateMap[gameState] }}</p>
+            <button class="bg-white rounded-lg uppercase text-sm font-bold tracking-widest py-4 px-10" @click="resetGame">play again</button>
+          </div>
+          <MoveCard 
+            :svgLink="houseChosenCard" 
+            :class="houseChosenCard" 
+            size="lg"
+          />
       </div>
     </div>
     <div v-else class="bg-pentagon mx-auto mt-24">
