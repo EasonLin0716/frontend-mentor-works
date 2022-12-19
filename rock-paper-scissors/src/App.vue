@@ -4,6 +4,7 @@ import ScoreBoard from './components/ScoreBoard.vue'
 import MoveCard from './components/MoveCard.vue'
 import GameRules from './components/GameRules.vue'
 import PickText from './components/PickText.vue'
+import WinningWave from './components/WinningWave.vue'
 const moveCardData = ref({
     rock: {
       beats: ['lizard', 'scissors']
@@ -40,8 +41,11 @@ const playerChosenCard = ref('')
 const houseChosenCard = ref('')
 function playerChoose(type) {
   playerChosenCard.value = type
-  houseChosenCard.value = getRandomCard()
+  const timer = setInterval(() => {
+    houseChosenCard.value = getRandomCard()
+  }, 50)
   setTimeout(() => {
+    clearTimeout(timer)
     setWinner()
   }, 2000)
 }
@@ -75,24 +79,32 @@ function resetGame() {
   <div class="max-w-[1024px] mx-auto pt-10">
     <ScoreBoard :cardList="cardList" :score="score" />
     <div v-if="playerChosenCard" class="flex justify-between">
-      <div class="grid grid-cols-3 gap-12 items-center justify-items-center mx-auto">
+      <div :class="{ 'grid-cols-2': !gameState }" class="grid grid-cols-3 gap-12 items-center justify-items-center mx-auto">
           <PickText />
-          <div></div>
+          <div v-if="gameState"></div>
           <PickText :isPlayer="false" />
-          <MoveCard 
-            :svgLink="playerChosenCard" 
-            :class="playerChosenCard" 
-            size="lg"
-          />
-          <div>
+          <div class="relative">
+            <MoveCard 
+              :svgLink="playerChosenCard" 
+              :class="playerChosenCard" 
+              class="z-10 relative left-0 top-0"
+              size="lg"
+            />
+            <WinningWave v-if="gameState === 1" />
+          </div>
+          <div v-if="gameState" class="flex flex-col justify-center">
             <p class="uppercase text-white font-bold text-5xl mb-4 text-center">{{ gameStateMap[gameState] }}</p>
             <button class="bg-white rounded-lg uppercase text-sm font-bold tracking-widest py-4 px-10" @click="resetGame">play again</button>
           </div>
-          <MoveCard 
-            :svgLink="houseChosenCard" 
-            :class="houseChosenCard" 
-            size="lg"
-          />
+          <div class="relative">
+            <MoveCard 
+              :svgLink="houseChosenCard" 
+              :class="houseChosenCard" 
+              class="z-10 relative left-0 top-0"
+              size="lg"
+            />
+            <WinningWave v-if="gameState === 2" />
+          </div>
       </div>
     </div>
     <div v-else class="bg-pentagon mx-auto mt-24">
