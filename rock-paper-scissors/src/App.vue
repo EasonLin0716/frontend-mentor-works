@@ -78,8 +78,8 @@ function resetGame() {
 <template>
   <div class="max-w-[1024px] mx-auto pt-10">
     <ScoreBoard :cardList="cardList" :score="score" />
-    <div v-if="playerChosenCard" class="flex justify-between">
-      <div :class="{ 'grid-cols-2': !gameState }" class="grid grid-cols-3 gap-12 items-center justify-items-center mx-auto">
+    <div v-if="playerChosenCard && houseChosenCard" class="flex justify-between">
+      <div :class="{ 'grid-cols-2': !gameState, 'grid-cols-3': gameState }" class="grid gap-12 items-center justify-items-center mx-auto">
           <PickText />
           <div v-if="gameState"></div>
           <PickText :isPlayer="false" />

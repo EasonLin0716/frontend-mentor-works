@@ -5,5 +5,5 @@ import CircleWave from './CircleWave.vue'
 <template>
     <CircleWave />
     <CircleWave animationDelay="0.8s" />
-    <CircleWave animationDelay="1.6s" /><div :style="{ animationDelay }" class="circle-wave"></div>
+    <CircleWave animationDelay="1.6s" />
 </template>
