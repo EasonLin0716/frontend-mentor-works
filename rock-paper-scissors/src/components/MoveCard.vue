@@ -12,9 +12,9 @@ defineProps({
 })
 const sizeClasses = computed(() => ({
     md: {
-        container: 'w-34 h-34',
-        inner: 'w-26 h-26',
-        img: 'w-12'
+        container: 'pc:w-34 pc:h-34 w-24 h-24',
+        inner: 'pc:w-26 pc:h-26 w-20 h-20',
+        img: 'pc:w-12 w-10'
     },
     lg: {
         container: 'w-72 h-72',

@@ -84,8 +84,31 @@ html, body {
   left: -60px;
 }
 .bg-pentagon {
-  @apply relative;
+  @apply relative bg-contain;
   background-image: url('/images/bg-pentagon.svg');
   width: 329px;
-  height: 313px;
+  aspect-ratio: 329/313;
+}
+
+@media all and (max-width: 500px) {
+  .bg-pentagon {
+    width: 289px;
+  }
+  .scissors {
+    top: -42px;
+  }
+  .paper {
+    right: -32px;
+  }
+  .rock {
+    bottom: -32px;
+    right: 12px;
+  }
+  .lizard {
+    bottom: -32px;
+    left: 12px;
+  }
+  .spock {
+    left: -32px;
+  }
 }
