@@ -42,7 +42,9 @@ const houseChosenCard = ref('')
 function playerChoose(type) {
   playerChosenCard.value = type
   const timer = setInterval(() => {
-    houseChosenCard.value = getRandomCard()
+    let random = getRandomCard()
+    while (random === playerChosenCard.value) random = getRandomCard()
+    houseChosenCard.value = random
   }, 50)
   setTimeout(() => {
     clearTimeout(timer)
@@ -79,11 +81,11 @@ function resetGame() {
   <div class="max-w-[1024px] mx-auto pt-10">
     <ScoreBoard :cardList="cardList" :score="score" />
     <div v-if="playerChosenCard && houseChosenCard" class="flex justify-between">
-      <div :class="{ 'grid-cols-2': !gameState, 'grid-cols-3': gameState }" class="grid gap-12 items-center justify-items-center mx-auto">
-          <PickText />
-          <div v-if="gameState"></div>
+      <div :class="{ 'grid-cols-2': !gameState, 'pc:grid-cols-3 grid-cols-2': gameState }" class="grid gap-12 items-center justify-items-center mx-auto">
+          <PickText class="pc:row-start-auto row-start-2" />
+          <div v-if="gameState" class="pc:block hidden"></div>
           <PickText :isPlayer="false" />
-          <div class="relative">
+          <div class="relative pc:row-start-auto pc:col-start-auto row-start-1 col-start-1">
             <MoveCard 
               :svgLink="playerChosenCard" 
               :class="playerChosenCard" 
@@ -92,11 +94,11 @@ function resetGame() {
             />
             <WinningWave v-if="gameState === 1" />
           </div>
-          <div v-if="gameState" class="flex flex-col justify-center">
+          <div v-if="gameState" class="pc:col-auto pc:mt-0 col-span-2 mt-8 flex flex-col justify-center">
             <p class="uppercase text-white font-bold text-5xl mb-4 text-center">{{ gameStateMap[gameState] }}</p>
             <button class="bg-white rounded-lg uppercase text-sm font-bold tracking-widest py-4 px-10" @click="resetGame">play again</button>
           </div>
-          <div class="relative">
+          <div class="relative pc:row-start-auto pc:col-start-auto row-start-1 col-start-2 ">
             <MoveCard 
               :svgLink="houseChosenCard" 
               :class="houseChosenCard" 

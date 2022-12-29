@@ -13,5 +13,5 @@ const text = computed(() => {
 </script>
 
 <template>
-    <p class="text-white uppercase font-bold tracking-widest text-xl text-center">{{ text }}</p>
+    <p class="text-white uppercase font-bold tracking-widest pc:text-xl text-sm text-center">{{ text }}</p>
 </template>
