@@ -27,7 +27,7 @@ const sizeClasses = computed(() => ({
 <template>
     <div :class="sizeClasses[size].container" class="flex justify-center items-center rounded-1/2 cursor-pointer">
         <div :class="sizeClasses[size].inner" class="rounded-1/2 flex justify-center items-center bg-white">
-            <img :src="'/images/icon-' + svgLink + '.svg'" :alt="svgLink" :class="sizeClasses[size].img" class="h-auto">
+            <img :src="'./images/icon-' + svgLink + '.svg'" :alt="svgLink" :class="sizeClasses[size].img" class="h-auto">
         </div>
     </div>
 </template>
