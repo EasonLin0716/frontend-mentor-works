@@ -85,7 +85,7 @@ html, body {
 }
 .bg-pentagon {
   @apply relative bg-contain;
-  background-image: url('./images/bg-pentagon.svg');
+  background-image: url('/images/bg-pentagon.svg');
   width: 329px;
   aspect-ratio: 329/313;
 }
