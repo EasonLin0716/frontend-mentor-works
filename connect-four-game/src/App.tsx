@@ -1,13 +1,14 @@
-import { useState } from 'react'
 import './App.css'
+import VSCPUButton from './components/button/VSCPUButton'
+import VSPlayerButton from './components/button/VSPlayerButton'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <p>
-        Play vs player
+        <VSCPUButton />
+        <VSPlayerButton />
+        {/* Play vs player
         Game rules
         Rules
         Objective
@@ -29,7 +30,7 @@ function App() {
         Player 1's turn
         Player 2's turn
         Wins
-        Play again
+        Play again */}
       </p>
     </>
   )

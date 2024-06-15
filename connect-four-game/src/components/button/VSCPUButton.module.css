@@ -1,0 +1,15 @@
+@value colors: "../../styles/colors.module.css";
+@value colorPink, colorWhite from colors;
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: colorPink;
+  padding-left: 20px;
+  padding-right: 17px;
+}
+
+.text {
+  color: colorWhite;
+  text-transform: uppercase;
+}
