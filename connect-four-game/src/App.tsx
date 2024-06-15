@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
@@ -8,25 +6,30 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+      <p>
+        Play vs player
+        Game rules
+        Rules
+        Objective
+        Be the first player to connect 4 of the same colored discs in a row (either 
+        vertically, horizontally, or diagonally).
+        How to play
+        Red goes first in the first game.
+        Players must alternate turns, and only one disc can be dropped in each turn. 
+        The game ends when there is a 4-in-a-row or a stalemate.
+        The starter of the previous game goes second on the next game.
+        Pause
+        Continue game
+        Restart
+        Quit game
+        Menu
+        Restart
+        Player 1
+        Player 2
+        Player 1's turn
+        Player 2's turn
+        Wins
+        Play again
       </p>
     </>
   )
