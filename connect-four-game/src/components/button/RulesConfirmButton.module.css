@@ -1,0 +1,22 @@
+@value colors: "../../styles/colors.module.css";
+@value colorWhite, colorPink, colorBlack, colorDarkPurple from colors;
+
+.wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 3px solid colorBlack;
+  background-color: colorPink;
+  font-size: 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 0 6px 0 0 colorBlack;
+  top: 0;
+  position: relative;
+  transition: border 0.3s, box-shadow 0.3s, top 0.3s;
+  &:hover {
+    top: 4px;
+    border-color: colorDarkPurple;
+    box-shadow: 0 2px 0 0 colorDarkPurple;
+  }
+}

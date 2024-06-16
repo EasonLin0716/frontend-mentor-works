@@ -9,7 +9,7 @@ const Button: React.FC<ButtonProps> = ({ type = 'button', onClick, children, cla
   <button
     type={type}
     onClick={onClick}
-    className={`heading-m ${styles.wrapper} ${className}`}
+    className={`${styles.wrapper} ${className}`}
     {...props}
   >
     {children}

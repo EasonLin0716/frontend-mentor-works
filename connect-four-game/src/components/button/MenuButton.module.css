@@ -1,0 +1,23 @@
+@value headings: "../../styles/headings.module.css";
+@value headingXS from headings;
+@value colors: "../../styles/colors.module.css";
+@value colorPink, colorDarkPurple, colorWhite from colors;
+
+.wrapper {
+  width: 86px;
+  height: 39px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  composes: headingXS;
+  background-color: colorDarkPurple;
+  color: colorWhite;
+  border-radius: 20px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: colorPink;
+  }
+}

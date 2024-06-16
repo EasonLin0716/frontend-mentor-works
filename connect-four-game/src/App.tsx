@@ -1,13 +1,27 @@
 import './App.css'
 import VSCPUButton from './components/button/VSCPUButton'
 import VSPlayerButton from './components/button/VSPlayerButton'
+import ContinueGameButton from './components/button/ContinueGameButton'
+import QuitGameButton from './components/button/QuitGameButton' 
+import MenuButton from './components/button/MenuButton'
+import RulesConfirmButton from './components/button/RulesConfirmButton'
 
 function App() {
   return (
     <>
-      <p>
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '1rem',
+      }}>
         <VSCPUButton />
         <VSPlayerButton />
+        <ContinueGameButton />
+        <QuitGameButton />
+        <MenuButton />
+        <RulesConfirmButton />
+      </div>
+      <p>
         {/* Play vs player
         Game rules
         Rules
