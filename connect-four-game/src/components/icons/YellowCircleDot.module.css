@@ -1,0 +1,5 @@
+@value colors: "../../styles/colors.module.css";
+@value colorYellow from colors;
+.wrapper {
+  background-color: colorYellow;
+}
