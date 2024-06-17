@@ -1,9 +1,11 @@
 import React from 'react';
-import styles from './RuleScreen.module.css';
+import styles from './RulesScreen.module.css';
 
 const RulesScreen: React.FC = () => {
     return (
-        <div></div>
+        <div className={styles.wrapper}>
+            RulesScreen Component
+        </div>
     );
 };
 

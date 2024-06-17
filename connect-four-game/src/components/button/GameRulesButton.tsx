@@ -1,12 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './GameRules.module.css';
 import Button from '../common/Button';
 
 const GameRulesButton: React.FC = () => {
     return (
-        <Button className={styles.wrapper}>
-            game rules
-        </Button>
+        <Link to="/rules">
+            <Button className={styles.wrapper}>
+                game rules
+            </Button>
+        </Link>
     );
 }
 
