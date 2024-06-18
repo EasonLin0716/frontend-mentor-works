@@ -9,5 +9,5 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Space Grotesk", sans-serif !important;
 }

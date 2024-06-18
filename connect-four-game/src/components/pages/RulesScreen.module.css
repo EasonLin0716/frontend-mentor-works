@@ -1,4 +1,52 @@
-@value colors from "../../styles/colors.module.css";
+@value colors: "../../styles/colors.module.css";
+@value colorPurple, colorBlack, colorWhite from colors;
+@value headings: "../../styles/headings.module.css";
+@value headingL, headingS from headings;
 
 .wrapper {
+  background-color: colorPurple;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding-top: 182px;
+}
+
+.content {
+  border-radius: 40px;
+  border: 3px solid colorBlack;
+  background-color: colorWhite;
+  box-shadow: 0px 10px 0px 0px colorBlack;
+  padding: 30px 34px 54px 34px;
+  max-width: 480px;
+}
+
+.inner {
+}
+
+.isFirstInner {
+  margin-bottom: 32px;
+}
+
+.title {
+  color: colorBlack;
+  text-align: center;
+  text-transform: uppercase;
+  composes: headingL;
+  margin-bottom: 29px;
+}
+
+.subtitle {
+  color: colorPurple;
+  text-transform: uppercase;
+  composes: headingS;
+  margin-bottom: 16px;
+}
+
+.paragraph {
+  color: colorBlack;
+  opacity: 0.6;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
 }
