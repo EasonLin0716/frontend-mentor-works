@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './RulesScreen.module.css';
+import RuleScreenParagraph from '../specific/RuleScreenParagraph';
 
 const RULES_TITLE = 'rules';
 const OBJECTIVE_SUBTITLE = 'objective';
@@ -19,16 +21,24 @@ const RulesScreen: React.FC = () => {
                 <h1 className={styles.title}>{RULES_TITLE}</h1>
                 <div className={`${styles.inner} ${styles.isFirstInner}`}>
                     <h2 className={styles.subtitle}>{OBJECTIVE_SUBTITLE}</h2>
-                    <p className={styles.paragraph}>{OBJECTIVE_DESCRIPTION}</p>
+                    <RuleScreenParagraph>{OBJECTIVE_DESCRIPTION}</RuleScreenParagraph>
                 </div>
                 <div className={styles.inner}>
                     <h2 className={styles.subtitle}>{HOW_TO_PLAY_SUBTITLE}</h2>
-                    <ol>
+                    <ol className={styles.listContainer}>
                         {HOW_TO_PAY_DESCRIPTIONS.map((description, index) => (
-                            <li key={index} className={styles.paragraph}>{description}</li>
+                            <li key={index} className={styles.listItem}>
+                                <span className={styles.listNumber}>{index + 1}</span>
+                                <RuleScreenParagraph>{description}</RuleScreenParagraph>
+                            </li>
                         ))}
                     </ol>
                 </div>
+                <Link to="/">
+                    <button className={styles.backButton}>
+                        <img src="/images/confirm.svg" alt="" width={28} />
+                    </button>
+                </Link>
             </div>
         </div>
     );

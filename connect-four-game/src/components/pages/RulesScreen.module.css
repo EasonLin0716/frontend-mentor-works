@@ -1,7 +1,7 @@
 @value colors: "../../styles/colors.module.css";
-@value colorPurple, colorBlack, colorWhite from colors;
+@value colorPurple, colorBlack, colorWhite, colorPink from colors;
 @value headings: "../../styles/headings.module.css";
-@value headingL, headingS from headings;
+@value headingL, headingS, headingXS from headings;
 
 .wrapper {
   background-color: colorPurple;
@@ -19,6 +19,7 @@
   box-shadow: 0px 10px 0px 0px colorBlack;
   padding: 30px 34px 54px 34px;
   max-width: 480px;
+  position: relative;
 }
 
 .inner {
@@ -49,4 +50,43 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.listItem {
+  display: flex;
+  gap: 16px;
+}
+
+.listNumber {
+  composes: headingXS;
+  color: colorBlack;
+}
+
+.backButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: colorPink;
+  border: 2px solid colorBlack;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  bottom: -32px;
+  left: calc(50% - 30px);
+  transform: translateY(0);
+  box-shadow: 0px 5px 0px 0px colorBlack;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.backButton:hover {
+  transform: translateY(4px);
+  box-shadow: 0px 1px 0px 0px colorBlack;
 }
