@@ -22,9 +22,6 @@
   position: relative;
 }
 
-.inner {
-}
-
 .isFirstInner {
   margin-bottom: 32px;
 }
@@ -35,13 +32,6 @@
   text-transform: uppercase;
   composes: headingL;
   margin-bottom: 29px;
-}
-
-.subtitle {
-  color: colorPurple;
-  text-transform: uppercase;
-  composes: headingS;
-  margin-bottom: 16px;
 }
 
 .paragraph {

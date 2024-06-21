@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './RulesScreen.module.css';
-import RuleScreenParagraph from '../specific/RuleScreenParagraph';
+import { RuleScreenParagraph, RuleScreenSubtitle } from '../specific/';
 import { rulesScreenData as data } from '../../constants';
 const { title, objectiveSubtitle, objectiveDescription, howToPlaySubtitle, howToPlayDescriptions } = data;
 
@@ -11,11 +11,11 @@ const RulesScreen: React.FC = () => {
             <div className={styles.content}>
                 <h1 className={styles.title}>{title}</h1>
                 <div className={`${styles.inner} ${styles.isFirstInner}`}>
-                    <h2 className={styles.subtitle}>{objectiveSubtitle}</h2>
+                    <RuleScreenSubtitle>{objectiveSubtitle}</RuleScreenSubtitle>
                     <RuleScreenParagraph>{objectiveDescription}</RuleScreenParagraph>
                 </div>
                 <div className={styles.inner}>
-                    <h2 className={styles.subtitle}>{howToPlaySubtitle}</h2>
+                    <RuleScreenSubtitle>{howToPlaySubtitle}</RuleScreenSubtitle>
                     <ol className={styles.listContainer}>
                         {howToPlayDescriptions.map((description, index) => (
                             <li key={index} className={styles.listItem}>

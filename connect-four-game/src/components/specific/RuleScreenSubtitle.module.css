@@ -1,0 +1,10 @@
+@value colors: "../../styles/colors.module.css";
+@value colorPurple from colors;
+@value headings: "../../styles/headings.module.css";
+@value headingS from headings;
+.wrapper {
+    color: colorPurple;
+    text-transform: uppercase;
+    composes: headingS;
+    margin-bottom: 16px;
+}

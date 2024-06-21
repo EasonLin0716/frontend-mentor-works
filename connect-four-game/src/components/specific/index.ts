@@ -1,3 +1,5 @@
-import CircleDotGroup from "./CircleDotGroup";
+import CircleDotGroup from "./CircleDotGroup.tsx";
+import RuleScreenParagraph from "./RuleScreenParagraph.tsx";
+import RuleScreenSubtitle from "./RuleScreenSubTitle.tsx";
 
-export { CircleDotGroup };
+export { CircleDotGroup, RuleScreenParagraph, RuleScreenSubtitle };
