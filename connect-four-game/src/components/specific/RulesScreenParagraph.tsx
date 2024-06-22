@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./RuleScreenParagraph.module.css";
+import styles from "./RulesScreenParagraph.module.css";
 
 interface RuleScreenParagraphProps {
   children: string;

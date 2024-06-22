@@ -1,0 +1,9 @@
+@value colors: "../../styles/colors.module.css";
+@value colorBlack from colors;
+@value headings: "../../styles/headings.module.css";
+@value headingXS from headings;
+
+.wrapper {
+  composes: headingXS;
+  color: colorBlack;
+}
