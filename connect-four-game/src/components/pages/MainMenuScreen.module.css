@@ -5,7 +5,8 @@
   background-color: colorDarkPurple;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
+  padding-top: 182px;
   min-height: 100vh;
 }
 
