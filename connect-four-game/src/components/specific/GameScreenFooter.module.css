@@ -1,0 +1,11 @@
+@value colors: "../../styles/colors.module.css";
+@value colorDarkPurple from colors;
+
+.wrapper {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: colorDarkPurple;
+  height: 200px;
+  border-radius: 60px 60px 0 0;
+}

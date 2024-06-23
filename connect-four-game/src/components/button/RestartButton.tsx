@@ -6,10 +6,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   }
 
 
-const MenuButton: React.FC<ButtonProps> = () => {
+const RestartButton: React.FC<ButtonProps> = () => {
     return (
-        <SmallButton>menu</SmallButton>
+        <SmallButton>restart</SmallButton>
     );
 }
 
-export default MenuButton;
+export default RestartButton;

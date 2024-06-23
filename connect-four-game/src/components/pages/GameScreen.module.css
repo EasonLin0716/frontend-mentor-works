@@ -1,4 +1,11 @@
-@value colors from "../../styles/colors.module.css";
+@value colors: "../../styles/colors.module.css";
+@value colorPurple, colorDarkPurple, colorBlack, colorWhite from colors;
 
 .wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: colorPurple;
+  position: relative;
+  padding-top: 50px;
 }

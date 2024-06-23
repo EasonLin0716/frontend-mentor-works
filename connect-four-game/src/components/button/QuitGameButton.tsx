@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './QuitGameButton.module.css';
-import Button from '../common/Button';
+import Button from '../common/BigButton';
 
 const VSCPUButton: React.FC = () => {
     return (

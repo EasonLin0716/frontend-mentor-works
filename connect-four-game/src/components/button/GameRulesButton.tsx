@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './GameRules.module.css';
-import Button from '../common/Button';
+import Button from '../common/BigButton';
 
 const GameRulesButton: React.FC = () => {
     return (
