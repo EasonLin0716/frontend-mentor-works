@@ -3,12 +3,13 @@ import SmallButton from '../common/SmallButton';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
-  }
+    openMenu: () => void;
+}
 
 
-const MenuButton: React.FC<ButtonProps> = () => {
+const MenuButton: React.FC<ButtonProps> = ({ openMenu }) => {
     return (
-        <SmallButton>menu</SmallButton>
+        <SmallButton onClick={openMenu}>menu</SmallButton>
     );
 }
 

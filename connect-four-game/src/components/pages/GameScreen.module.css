@@ -9,3 +9,18 @@
   position: relative;
   padding-top: 50px;
 }
+
+.menuEnter {
+  opacity: 0;
+}
+.menuEnterActive {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+.menuExit {
+  opacity: 1;
+}
+.menuExitActive {
+  opacity: 0;
+  transition: opacity 300ms;
+}

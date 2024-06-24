@@ -4,6 +4,7 @@ import RulesScreenSubtitle from "./RulesScreenSubTitle.tsx";
 import RulesScreenNumber from "./RulesScreenNumber.tsx";
 import GameScreenFooter from "./GameScreenFooter.tsx";
 import GameScreenHeader from "./GameScreenHeader.tsx";
+import GameScreenMenu from "./GameScreenMenu.tsx";
 
 export {
   CircleDotGroup,
@@ -12,4 +13,5 @@ export {
   RulesScreenNumber,
   GameScreenFooter,
   GameScreenHeader,
+  GameScreenMenu,
 };
