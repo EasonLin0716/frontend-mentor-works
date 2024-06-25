@@ -6,9 +6,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   }
 
 
-const RestartButton: React.FC<ButtonProps> = () => {
+const RestartButton: React.FC<ButtonProps> = ({ onClick }) => {
     return (
-        <SmallButton>restart</SmallButton>
+        <SmallButton onClick={onClick}>restart</SmallButton>
     );
 }
 

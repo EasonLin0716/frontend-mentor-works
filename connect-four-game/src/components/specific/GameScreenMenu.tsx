@@ -6,15 +6,16 @@ import BigButton from '../common/BigButton';
 interface GameScreenMenuProps {
     menuIsOpen: boolean;
     closeMenu: () => void;
+    restartGame: () => void;
 }
 
-const GameScreenMenu = forwardRef<HTMLDivElement, GameScreenMenuProps>(({ closeMenu }, ref) => {
+const GameScreenMenu = forwardRef<HTMLDivElement, GameScreenMenuProps>(({ closeMenu, restartGame }, ref) => {
     return (
         <div ref={ref} className={styles.layer}>
             <div className={styles.menu}>
                 <h2 className={styles.title}>pause</h2>
                 <BigButton className={styles.continueGameBtn} onClick={closeMenu}>continue game</BigButton>
-                <BigButton className={styles.restartBtn} onClick={() => { }}>restart</BigButton>
+                <BigButton className={styles.restartBtn} onClick={restartGame}>restart</BigButton>
                 <Link to="/">
                     <BigButton className={styles.quitGameBtn}>quit game</BigButton>
                 </Link>
