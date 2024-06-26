@@ -4,11 +4,12 @@ type RulesScreenData = {
     objectiveDescription: string;
     howToPlaySubtitle: string;
     howToPlayDescriptions: string[];
-}
+};
 export const rulesScreenData: RulesScreenData = {
     title: 'rules',
     objectiveSubtitle: 'objective',
-    objectiveDescription: 'Be the first player to connect 4 of the same colored discs in a row (either vertically, horizontally, or diagonally).',
+    objectiveDescription:
+        'Be the first player to connect 4 of the same colored discs in a row (either vertically, horizontally, or diagonally).',
     howToPlaySubtitle: 'how to play',
     howToPlayDescriptions: [
         'Red goes first in the first game.',

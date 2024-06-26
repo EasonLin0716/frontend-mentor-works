@@ -5,10 +5,8 @@ interface CircleDotProps {
     className?: string;
 }
 
-const CircleDot: React.FC<CircleDotProps> = ({ className}) => {
-    return (
-        <div className={`${styles.wrapper} ${className}`}></div>
-    );
+const CircleDot: React.FC<CircleDotProps> = ({ className }) => {
+    return <div className={`${styles.wrapper} ${className}`}></div>;
 };
 
 export default CircleDot;

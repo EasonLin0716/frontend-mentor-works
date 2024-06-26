@@ -1,4 +1,4 @@
-import PinkCircleDot from "./PinkCircleDot";
-import YellowCircleDot from "./YellowCircleDot";
+import PinkCircleDot from './PinkCircleDot';
+import YellowCircleDot from './YellowCircleDot';
 
 export { PinkCircleDot, YellowCircleDot };

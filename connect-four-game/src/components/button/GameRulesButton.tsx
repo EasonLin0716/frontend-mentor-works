@@ -5,12 +5,10 @@ import Button from '../common/BigButton';
 
 const GameRulesButton: React.FC = () => {
     return (
-        <Link to="/rules">
-            <Button className={styles.wrapper}>
-                game rules
-            </Button>
+        <Link to='/rules'>
+            <Button className={styles.wrapper}>game rules</Button>
         </Link>
     );
-}
+};
 
 export default GameRulesButton;

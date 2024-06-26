@@ -1,9 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './RulesScreen.module.css';
-import { RulesScreenParagraph, RulesScreenSubtitle, RulesScreenNumber } from '../specific/';
+import {
+    RulesScreenParagraph,
+    RulesScreenSubtitle,
+    RulesScreenNumber,
+} from '../specific/';
 import { rulesScreenData as data } from '../../constants';
-const { title, objectiveSubtitle, objectiveDescription, howToPlaySubtitle, howToPlayDescriptions } = data;
+const {
+    title,
+    objectiveSubtitle,
+    objectiveDescription,
+    howToPlaySubtitle,
+    howToPlayDescriptions,
+} = data;
 
 const RulesScreen: React.FC = () => {
     return (
@@ -25,9 +35,9 @@ const RulesScreen: React.FC = () => {
                         ))}
                     </ol>
                 </div>
-                <Link to="/">
+                <Link to='/'>
                     <button className={styles.backButton}>
-                        <img src="/images/confirm.svg" alt="" width={28} />
+                        <img src='/images/confirm.svg' alt='' width={28} />
                     </button>
                 </Link>
             </div>

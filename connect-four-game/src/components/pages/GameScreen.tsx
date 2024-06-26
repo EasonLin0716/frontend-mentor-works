@@ -1,18 +1,25 @@
 import React, { useState, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import styles from './GameScreen.module.css';
-import { GameScreenFooter, GameScreenHeader, GameScreenMenu } from '../specific';
+import {
+    GameScreenFooter,
+    GameScreenHeader,
+    GameScreenMenu,
+} from '../specific';
 
 const GameScreen: React.FC = () => {
     const [menuIsOpen, setMenuIsOpen] = useState(false);
     const nodeRef = useRef<HTMLDivElement>(null);
     const restartGameHandler = () => {
-        console.log('Restarting game')
-    }
+        console.log('Restarting game');
+    };
     return (
         <>
             <div className={styles.wrapper}>
-                <GameScreenHeader openMenu={() => setMenuIsOpen(true)} restartGame={restartGameHandler} />
+                <GameScreenHeader
+                    openMenu={() => setMenuIsOpen(true)}
+                    restartGame={restartGameHandler}
+                />
                 <GameScreenFooter />
             </div>
             <CSSTransition
@@ -27,7 +34,12 @@ const GameScreen: React.FC = () => {
                 unmountOnExit
                 nodeRef={nodeRef}
             >
-                <GameScreenMenu ref={nodeRef} menuIsOpen={menuIsOpen} closeMenu={() => setMenuIsOpen(false)} restartGame={restartGameHandler} />
+                <GameScreenMenu
+                    ref={nodeRef}
+                    menuIsOpen={menuIsOpen}
+                    closeMenu={() => setMenuIsOpen(false)}
+                    restartGame={restartGameHandler}
+                />
             </CSSTransition>
         </>
     );

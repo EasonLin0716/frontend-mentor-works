@@ -9,19 +9,25 @@ interface GameScreenMenuProps {
     restartGame: () => void;
 }
 
-const GameScreenMenu = forwardRef<HTMLDivElement, GameScreenMenuProps>(({ closeMenu, restartGame }, ref) => {
-    return (
-        <div ref={ref} className={styles.layer}>
-            <div className={styles.menu}>
-                <h2 className={styles.title}>pause</h2>
-                <BigButton className={styles.continueGameBtn} onClick={closeMenu}>continue game</BigButton>
-                <BigButton className={styles.restartBtn} onClick={restartGame}>restart</BigButton>
-                <Link to="/">
-                    <BigButton className={styles.quitGameBtn}>quit game</BigButton>
-                </Link>
+const GameScreenMenu = forwardRef<HTMLDivElement, GameScreenMenuProps>(
+    ({ closeMenu }, ref) => {
+        return (
+            <div ref={ref} className={styles.layer}>
+                <div className={styles.menu}>
+                    <h2 className={styles.title}>pause</h2>
+                    <BigButton className={styles.continueGameBtn} onClick={closeMenu}>
+                        continue game
+                    </BigButton>
+                    <BigButton className={styles.restartBtn} onClick={() => { }}>
+                        restart
+                    </BigButton>
+                    <Link to='/'>
+                        <BigButton className={styles.quitGameBtn}>quit game</BigButton>
+                    </Link>
+                </div>
             </div>
-        </div>
-    )
-})
+        );
+    },
+);
 
 export default GameScreenMenu;

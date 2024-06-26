@@ -6,11 +6,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     openMenu: () => void;
 }
 
-
 const MenuButton: React.FC<ButtonProps> = ({ openMenu }) => {
-    return (
-        <SmallButton onClick={openMenu}>menu</SmallButton>
-    );
-}
+    return <SmallButton onClick={openMenu}>menu</SmallButton>;
+};
 
 export default MenuButton;
