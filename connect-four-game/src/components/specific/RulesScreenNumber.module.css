@@ -4,6 +4,6 @@
 @value headingXS from headings;
 
 .wrapper {
-  composes: headingXS;
-  color: colorBlack;
+    composes: headingXS;
+    color: colorBlack;
 }

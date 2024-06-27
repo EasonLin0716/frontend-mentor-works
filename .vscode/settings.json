@@ -1,4 +1,10 @@
 {
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "css.lint.validProperties": [
+        "composes"
+    ],
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    }
 }

@@ -1,10 +1,11 @@
 @value colors: "../../styles/colors.module.css";
 @value colorPink, colorWhite from colors;
+
 .wrapper {
-  background-color: colorPink;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: colorWhite;
-  text-transform: uppercase;
+    background-color: colorPink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: colorWhite;
+    text-transform: uppercase;
 }

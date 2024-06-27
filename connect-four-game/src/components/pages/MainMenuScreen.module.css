@@ -2,30 +2,30 @@
 @value colorPurple, colorDarkPurple, colorBlack from colors;
 
 .wrapper {
-  background-color: colorDarkPurple;
-  display: flex;
-  justify-content: center;
-  align-items: start;
-  padding-top: 182px;
-  min-height: 100vh;
+    background-color: colorDarkPurple;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding-top: 182px;
+    min-height: 100vh;
 }
 
 .section {
-  background-color: colorPurple;
-  border: 3px solid colorBlack;
-  box-shadow: 0 10px 0 0 colorBlack;
-  border-radius: 40px;
-  padding: 70px 40px 60px 40px;
+    background-color: colorPurple;
+    border: 3px solid colorBlack;
+    box-shadow: 0 10px 0 0 colorBlack;
+    border-radius: 40px;
+    padding: 70px 40px 60px 40px;
 }
 
 .buttonGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
 .dotGroupWrapper {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 79px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 79px;
 }

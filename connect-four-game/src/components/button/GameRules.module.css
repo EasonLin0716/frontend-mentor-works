@@ -2,8 +2,8 @@
 @value colorBlack, colorWhite from colors;
 
 .wrapper {
-  background-color: colorWhite;
-  text-align: left;
-  text-transform: uppercase;
-  padding-left: 20px;
+    background-color: colorWhite;
+    text-align: left;
+    text-transform: uppercase;
+    padding-left: 20px;
 }

@@ -2,6 +2,7 @@
 @value colorPurple from colors;
 @value headings: "../../styles/headings.module.css";
 @value headingS from headings;
+
 .wrapper {
     color: colorPurple;
     text-transform: uppercase;

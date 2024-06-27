@@ -1,10 +1,11 @@
 @value colors: "../../styles/colors.module.css";
 @value colorBlack, colorWhite from colors;
+
 .wrapper {
-  background-color: colorWhite;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: colorBlack;
-  text-transform: uppercase;
+    background-color: colorWhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: colorBlack;
+    text-transform: uppercase;
 }

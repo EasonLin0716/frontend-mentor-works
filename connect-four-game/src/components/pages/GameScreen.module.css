@@ -2,25 +2,28 @@
 @value colorPurple, colorDarkPurple, colorBlack, colorWhite from colors;
 
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: colorPurple;
-  position: relative;
-  padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: colorPurple;
+    position: relative;
+    padding-top: 50px;
 }
 
 .menuEnter {
-  opacity: 0;
+    opacity: 0;
 }
+
 .menuEnterActive {
-  opacity: 1;
-  transition: opacity 300ms;
+    opacity: 1;
+    transition: opacity 300ms;
 }
+
 .menuExit {
-  opacity: 1;
+    opacity: 1;
 }
+
 .menuExitActive {
-  opacity: 0;
-  transition: opacity 300ms;
+    opacity: 0;
+    transition: opacity 300ms;
 }

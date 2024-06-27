@@ -1,12 +1,12 @@
 .wrapper {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .inner {
-  max-width: 638px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    max-width: 638px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

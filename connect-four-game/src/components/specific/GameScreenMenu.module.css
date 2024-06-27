@@ -4,41 +4,44 @@
 @value headingL from headings;
 
 .layer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
 }
+
 .menu {
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 40px;
-  border: 3px solid colorBlack;
-  background-color: colorPurple;
-  box-shadow: 0px 10px 0px 0px #000;
-  padding: 50px 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 40px;
+    border: 3px solid colorBlack;
+    background-color: colorPurple;
+    box-shadow: 0px 10px 0px 0px #000;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
+
 .title {
-  composes: headingL;
-  color: colorWhite;
-  margin-bottom: 14px;
-  text-align: center;
+    composes: headingL;
+    color: colorWhite;
+    margin-bottom: 14px;
+    text-align: center;
 }
+
 .title,
 .continueGameBtn,
 .restartBtn,
 .quitGameBtn {
-  text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 .quitGameBtn {
-  background-color: colorPink;
-  color: colorWhite;
+    background-color: colorPink;
+    color: colorWhite;
 }

@@ -2,9 +2,9 @@
 @value colorBlack from colors;
 
 .wrapper {
-  color: colorBlack;
-  opacity: 0.6;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 20px;
+    color: colorBlack;
+    opacity: 0.6;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
 }
