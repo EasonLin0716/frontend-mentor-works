@@ -4,6 +4,7 @@ import styles from './GameScreen.module.css';
 import {
     GameScreenFooter,
     GameScreenHeader,
+    GameScreenContent,
     GameScreenMenu,
 } from '../specific';
 
@@ -20,6 +21,7 @@ const GameScreen: React.FC = () => {
                     openMenu={() => setMenuIsOpen(true)}
                     restartGame={restartGameHandler}
                 />
+                <GameScreenContent />
                 <GameScreenFooter />
             </div>
             <CSSTransition

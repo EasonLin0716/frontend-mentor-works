@@ -1,0 +1,16 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.gameBoard {
+    width: 100%;
+    max-width: 632px;
+    aspect-ratio: 632 / 584;
+    background-image: url('/images/board-layer-white-large.svg'), url('/images/board-layer-black-large.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+}

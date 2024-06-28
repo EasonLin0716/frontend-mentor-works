@@ -4,6 +4,7 @@ import RulesScreenSubtitle from './RulesScreenSubTitle.tsx';
 import RulesScreenNumber from './RulesScreenNumber.tsx';
 import GameScreenFooter from './GameScreenFooter.tsx';
 import GameScreenHeader from './GameScreenHeader.tsx';
+import GameScreenContent from './GameScreenContent.tsx';
 import GameScreenMenu from './GameScreenMenu.tsx';
 
 export {
@@ -13,5 +14,6 @@ export {
     RulesScreenNumber,
     GameScreenFooter,
     GameScreenHeader,
+    GameScreenContent,
     GameScreenMenu,
 };
