@@ -6,6 +6,8 @@ import GameScreenFooter from './GameScreenFooter.tsx';
 import GameScreenHeader from './GameScreenHeader.tsx';
 import GameScreenContent from './GameScreenContent.tsx';
 import GameScreenMenu from './GameScreenMenu.tsx';
+import GameBoard from './GameBoard.tsx';
+import CompetitorBoard from '../common/CompetitorBoard.tsx';
 
 export {
     CircleDotGroup,
@@ -16,4 +18,6 @@ export {
     GameScreenHeader,
     GameScreenContent,
     GameScreenMenu,
+    GameBoard,
+    CompetitorBoard,
 };

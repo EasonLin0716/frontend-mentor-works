@@ -1,0 +1,11 @@
+.wrapper {
+    width: 100%;
+    max-width: 632px;
+    aspect-ratio: 632 / 594;
+    background-image: url('/images/board-layer-white-large.svg'), url('/images/board-layer-black-large.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top center;
+    position: relative;
+    z-index: 1;
+}   
