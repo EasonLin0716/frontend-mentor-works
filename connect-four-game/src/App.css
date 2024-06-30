@@ -30,32 +30,213 @@ a {
     left: 545px;
 }
 
+@keyframes y-0-animation {
+    0% {
+        transform: translateY(0);
+    }
+    20% {
+        transform: translateY(36px); /* 下落到地板 */
+    }
+    40% {
+        transform: translateY(18px); /* 上彈到中間位置 */
+    }
+    60% {
+        transform: translateY(36px); /* 再次下落到地板 */
+    }
+    80% {
+        transform: translateY(27px); /* 再次上彈，幅度減小 */
+    }
+    100% {
+        transform: translateY(36px); /* 最終回到地板 */
+    }
+}
+
 .y-0 {
-    transform: translateY(36px);
-    transition: transform 0.5s;
+    animation: y-0-animation 0.5s cubic-bezier(.25,.75,.5,1) both;
+}
+
+@keyframes y-1-animation {
+    0% {
+        transform: translateY(0);
+    }
+    20% {
+        transform: translateY(124px);
+    }
+    30% {
+        transform: translateY(62px);
+    }
+    40% {
+        transform: translateY(124px);
+    }
+    50% {
+        transform: translateY(93px);
+    }
+    60% {
+        transform: translateY(124px);
+    }
+    70% {
+        transform: translateY(109px);
+    }
+    80% {
+        transform: translateY(124px);
+    }
+    90% {
+        transform: translateY(117px);
+    }
+    100% {
+        transform: translateY(124px);
+    }
 }
 
 .y-1 {
-    transform: translateY(124px);
-    transition: transform 0.5s;
+    animation: y-1-animation 0.6s cubic-bezier(.25,.75,.5,1) both;
+}
+
+@keyframes y-2-animation {
+    0% {
+        transform: translateY(0);
+    }
+    20% {
+        transform: translateY(212px);
+    }
+    30% {
+        transform: translateY(106px);
+    }
+    40% {
+        transform: translateY(212px); 
+    }
+    50% {
+        transform: translateY(159px); 
+    }
+    60% {
+        transform: translateY(212px); 
+    }
+    70% {
+        transform: translateY(185px); 
+    }
+    80% {
+        transform: translateY(212px); 
+    }
+    90% {
+        transform: translateY(198px); 
+    }
+    100% {
+        transform: translateY(212px);
+    }
 }
 
 .y-2 {
-    transform: translateY(212px);
-    transition: transform 0.5s;
+    animation: y-2-animation 0.7s cubic-bezier(.25,.75,.5,1) both;
+}
+
+@keyframes y-3-animation {
+    0% {
+        transform: translateY(0);
+    }
+    20% {
+        transform: translateY(300px);
+    }
+    30% {
+        transform: translateY(150px);
+    }
+    40% {
+        transform: translateY(300px); 
+    }
+    50% {
+        transform: translateY(225px); 
+    }
+    60% {
+        transform: translateY(300px); 
+    }
+    70% {
+        transform: translateY(262px); 
+    }
+    80% {
+        transform: translateY(300px); 
+    }
+    90% {
+        transform: translateY(281px); 
+    }
+    100% {
+        transform: translateY(300px); /* 最終回到地板 */
+    }
 }
 
 .y-3 {
-    transform: translateY(300px);
-    transition: transform 0.5s;
+    animation: y-3-animation 0.8s cubic-bezier(.25,.75,.5,1) both;
+}
+
+@keyframes y-4-animation {
+    0% {
+        transform: translateY(0);
+    }
+    20% {
+        transform: translateY(388px);
+    }
+    30% {
+        transform: translateY(194px); 
+    }
+    40% {
+        transform: translateY(388px);
+    }
+    50% {
+        transform: translateY(291px);
+    }
+    60% {
+        transform: translateY(388px);
+    }
+    70% {
+        transform: translateY(339px);
+    }
+    80% {
+        transform: translateY(388px); 
+    }
+    90% {
+        transform: translateY(364px); 
+    }
+    100% {
+        transform: translateY(388px);
+    }
 }
 
 .y-4 {
-    transform: translateY(388px);
-    transition: transform 0.5s;
+    animation: y-4-animation 0.9s cubic-bezier(.25,.75,.5,1) both;
+}
+
+@keyframes y-5-animation {
+    0% {
+        transform: translateY(0);
+    }
+    20% {
+        transform: translateY(476px); 
+    }
+    30% {
+        transform: translateY(238px); 
+    }
+    40% {
+        transform: translateY(476px);
+    }
+    50% {
+        transform: translateY(357px);
+    }
+    60% {
+        transform: translateY(476px);
+    }
+    70% {
+        transform: translateY(416px);
+    }
+    80% {
+        transform: translateY(476px);
+    }
+    90% {
+        transform: translateY(456px);
+    }
+    100% {
+        transform: translateY(476px);
+    }
 }
 
 .y-5 {
-    transform: translateY(476px);
-    transition: transform 0.5s;
+    animation: y-5-animation 1s cubic-bezier(.25,.75,.5,1) both;
 }
+說明
