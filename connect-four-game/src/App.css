@@ -1,3 +1,61 @@
 a {
     text-decoration: none;
 }
+
+.x-0 {
+    left: 17px;
+}
+
+.x-1 {
+    left: 105px;
+}
+
+.x-2 {
+    left: 193px;
+}
+
+.x-3 {
+    left: 281px;
+}
+
+.x-4 {
+    left: 369px;
+}
+
+.x-5 {
+    left: 457px;
+}
+
+.x-6 {
+    left: 545px;
+}
+
+.y-0 {
+    transform: translateY(36px);
+    transition: transform 0.5s;
+}
+
+.y-1 {
+    transform: translateY(124px);
+    transition: transform 0.5s;
+}
+
+.y-2 {
+    transform: translateY(212px);
+    transition: transform 0.5s;
+}
+
+.y-3 {
+    transform: translateY(300px);
+    transition: transform 0.5s;
+}
+
+.y-4 {
+    transform: translateY(388px);
+    transition: transform 0.5s;
+}
+
+.y-5 {
+    transform: translateY(476px);
+    transition: transform 0.5s;
+}

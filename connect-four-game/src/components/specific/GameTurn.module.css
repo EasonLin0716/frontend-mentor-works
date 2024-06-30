@@ -1,0 +1,32 @@
+@value colors: "../../styles/colors.module.css";
+@value colorWhite from colors;
+@value headings: "../../styles/headings.module.css";
+@value headingL, headingXS from headings;
+
+.wrapper {
+    width: 197px;
+    height: 165px;
+    background-image: url('/images/turn-background-red.svg');
+    position: absolute;
+    bottom: -112px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 41px 0 26px;
+}
+
+.name {
+    color: colorWhite;
+    text-align: center;
+    composes: headingXS;
+    text-transform: uppercase;
+}
+
+.secondWrapper {
+    display: flex;
+    align-items: end;
+    composes: headingL;
+    color: colorWhite;
+}

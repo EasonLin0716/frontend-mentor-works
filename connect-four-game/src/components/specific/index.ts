@@ -7,7 +7,9 @@ import GameScreenHeader from './GameScreenHeader.tsx';
 import GameScreenContent from './GameScreenContent.tsx';
 import GameScreenMenu from './GameScreenMenu.tsx';
 import GameBoard from './GameBoard.tsx';
-import CompetitorBoard from '../common/CompetitorBoard.tsx';
+import GameTurn from './GameTurn.tsx';
+import GamePawn from './GamePawn.tsx';
+import PutButton from './PutButton.tsx';
 
 export {
     CircleDotGroup,
@@ -19,5 +21,7 @@ export {
     GameScreenContent,
     GameScreenMenu,
     GameBoard,
-    CompetitorBoard,
+    GameTurn,
+    GamePawn,
+    PutButton,
 };

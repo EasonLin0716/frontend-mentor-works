@@ -1,0 +1,5 @@
+.wrapper {
+    width: 70px;
+    height: 75px;
+    background-image: url('/images/counter-red-large.svg');
+}

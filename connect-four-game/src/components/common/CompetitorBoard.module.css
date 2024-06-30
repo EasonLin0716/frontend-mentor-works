@@ -9,7 +9,7 @@
     border: 3px solid colorBlack;
     background-color: colorWhite;
     box-shadow: 0px 10px 0px 0px colorBlack;
-    padding: 46px 27px 17px 29px;
+    padding: 43px 24px 14px 26px;
     margin-top: 195px;
 }
 
@@ -17,6 +17,7 @@
     text-align: center;
     color: colorBlack;
     composes: headingS;
+    text-transform: uppercase;
 }
 
 .score {
