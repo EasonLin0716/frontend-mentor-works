@@ -10,6 +10,7 @@ import GameBoard from './GameBoard.tsx';
 import GameTurn from './GameTurn.tsx';
 import GamePawn from './GamePawn.tsx';
 import PutButton from './PutButton.tsx';
+import GameMarker from './GameMarker.tsx';
 
 export {
     CircleDotGroup,
@@ -24,4 +25,5 @@ export {
     GameTurn,
     GamePawn,
     PutButton,
+    GameMarker,
 };

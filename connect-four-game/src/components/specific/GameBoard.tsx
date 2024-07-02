@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './GameBoard.module.css';
-import { GameTurn, GamePawn, PutButton } from '.';
+import { GameTurn, GamePawn, PutButton, GameMarker } from '.';
 
 const GameBoard: React.FC = () => {
     const X = 7;
@@ -44,6 +44,7 @@ const GameBoard: React.FC = () => {
                 ))}
             </div>
             <GameTurn name="player 1" remainingTime={30} />
+            <GameMarker />
         </div>
     );
 };
