@@ -11,6 +11,7 @@ const GameBoard: React.FC = () => {
         isSet: false,
     })));
     const [board, setBoard] = useState(initialBoard);
+    const [isPlayer1, setIsPlayer1] = useState(true);
     const btnLength = X * Y;
 
     const clickHandler = (i: number): void => {
@@ -26,9 +27,10 @@ const GameBoard: React.FC = () => {
         const newBoard = [...board];
         newBoard[putX][putY] = {
             className: `x-${putX} y-${putY}`,
-            isPlayer1: true,
+            isPlayer1,
             isSet: true,
         }
+        setIsPlayer1(!isPlayer1);
         setBoard(newBoard);
     }
 
@@ -42,7 +44,7 @@ const GameBoard: React.FC = () => {
             <div className={styles.pawns}>
                 {board.map((col, x) =>
                     col.map((p, y) =>
-                        board[x][y]['isSet'] && <GamePawn key={`${x}-${y}`} className={`${p.className} ${styles.pawn}`} />
+                        board[x][y]['isSet'] && <GamePawn key={`${x}-${y}`} isPlayer1={board[x][y]['isPlayer1']} className={`${p.className} ${styles.pawn}`} />
                     )
                 )}
             </div>

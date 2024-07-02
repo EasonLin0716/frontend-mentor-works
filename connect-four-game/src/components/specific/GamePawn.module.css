@@ -1,5 +1,12 @@
 .wrapper {
     width: 70px;
     height: 75px;
+}
+
+.wrapper.isPlayer1 {
     background-image: url('/images/counter-red-large.svg');
+}
+
+.wrapper.isPlayer2 {
+    background-image: url('/images/counter-yellow-large.svg');
 }
