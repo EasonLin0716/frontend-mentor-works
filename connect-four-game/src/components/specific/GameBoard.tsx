@@ -35,7 +35,7 @@ const GameBoard: React.FC = () => {
     }
 
     useEffect(() => {
-        console.log(board);
+        console.table(board);
     }, [board]);
 
     return (
