@@ -3,6 +3,14 @@ import styles from './GameBoard.module.css';
 import { GameTurn, GamePawn, PutButton, GameMarker } from '.';
 
 const GameBoard: React.FC = () => {
+    const GAME_STATES = {
+        isReady: 0,
+        isPlaying: 1,
+        isPlayer1Win: 2,
+        isPlayer2Win: 3,
+        isDraw: 4,
+        isPaused: 5,
+    };
     const X = 7;
     const Y = 6;
     const initialBoard = Array.from({ length: X }, () => Array.from({ length: Y }, () => ({
@@ -11,8 +19,13 @@ const GameBoard: React.FC = () => {
         isSet: false,
     })));
     const [board, setBoard] = useState(initialBoard);
+    const [gameState, setGameState] = useState(GAME_STATES['isReady']);
     const [isPlayer1, setIsPlayer1] = useState(true);
     const btnLength = X * Y;
+
+    const getCurrentGameState = (): number => {
+        return 1;
+    }
 
     const clickHandler = (i: number): void => {
         const putX = i % 7;
@@ -32,6 +45,12 @@ const GameBoard: React.FC = () => {
         }
         setIsPlayer1(!isPlayer1);
         setBoard(newBoard);
+        setGameState(getCurrentGameState());
+        if (gameState === GAME_STATES['isPlayer1Win']) {
+            // player 1 win
+        } else if (gameState === GAME_STATES['isPlayer2Win']) {
+            // player 2 win
+        }
     }
 
     useEffect(() => {
