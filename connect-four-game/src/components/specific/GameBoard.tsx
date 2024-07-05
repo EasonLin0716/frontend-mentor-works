@@ -8,7 +8,15 @@ const GameBoard: React.FC = () => {
         isPlayer1: boolean;
         isSet: boolean;
     }
-    const GAME_STATES = {
+    type GameStates = {
+        isReady: number;
+        isPlaying: number;
+        isPlayer1Win: number;
+        isPlayer2Win: number;
+        isDraw: number;
+        isPaused: number;
+    }
+    const GAME_STATES: GameStates = {
         isReady: 0,
         isPlaying: 1,
         isPlayer1Win: 2,
@@ -80,7 +88,7 @@ const GameBoard: React.FC = () => {
                     <PutButton key={i} onClick={() => clickHandler(i)} />
                 ))}
             </div>
-            <GameTurn isPlayer1={isPlayer1} />
+            {gameState === GAME_STATES['isPlaying'] && <GameTurn isPlayer1={isPlayer1} />}
             <GameMarker xValue={lastPutXValue} isPlayer1={isPlayer1} />
         </div>
     );
