@@ -1,10 +1,17 @@
 import React from "react";
 import styles from "./GameMarker.module.css";
 
-const GameMarker: React.FC = () => {
+interface GameMarkerProps {
+    xValue: number;
+    isPlayer1: boolean;
+}
+
+const GameMarker: React.FC<GameMarkerProps> = ({ xValue, isPlayer1 }) => {
+    const renderingMarkerColor = isPlayer1 ? 'yellow' : 'red';
     return (
-        <div className={styles.wrapper}>
-            <img src="/images/marker-red.svg" alt="" />
+        xValue > -1 &&
+        <div className={`${styles.wrapper} ${styles[`xCor${xValue}`]}`}>
+            <img src={`/images/marker-${renderingMarkerColor}.svg`} alt="" />
         </div>
     );
 };

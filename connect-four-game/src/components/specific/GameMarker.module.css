@@ -2,5 +2,34 @@
     position: absolute;
     top: -36px;
     left: 0;
+    transition: transform 0.5s;
+    will-change: transform;
+}
+
+.xCor0 {
     transform: translateX(32px);
+}
+
+.xCor1 {
+    transform: translateX(120px);
+}
+
+.xCor2 {
+    transform: translateX(208px);
+}
+
+.xCor3 {
+    transform: translateX(296px);
+}
+
+.xCor4 {
+    transform: translateX(384px);
+}
+
+.xCor5 {
+    transform: translateX(472px);
+}
+
+.xCor6 {
+    transform: translateX(560px);
 }

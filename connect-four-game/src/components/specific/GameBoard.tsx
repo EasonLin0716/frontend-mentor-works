@@ -21,6 +21,7 @@ const GameBoard: React.FC = () => {
     const [board, setBoard] = useState(initialBoard);
     const [gameState, setGameState] = useState(GAME_STATES['isReady']);
     const [isPlayer1, setIsPlayer1] = useState(true);
+    const [lastPutXValue, setLastPutXValue] = useState(-1);
     const btnLength = X * Y;
 
     const getCurrentGameState = (): number => {
@@ -29,6 +30,7 @@ const GameBoard: React.FC = () => {
 
     const clickHandler = (i: number): void => {
         const putX = i % 7;
+        setLastPutXValue(putX);
         let putY = 0;
         if (board[putX][putY]['isSet']) {
             console.log('full');
@@ -54,7 +56,7 @@ const GameBoard: React.FC = () => {
     }
 
     useEffect(() => {
-        console.table(board);
+        // console.table(board);
     }, [board]);
 
     return (
@@ -73,7 +75,7 @@ const GameBoard: React.FC = () => {
                 ))}
             </div>
             <GameTurn name="player 1" remainingTime={30} />
-            <GameMarker />
+            <GameMarker xValue={lastPutXValue} isPlayer1={isPlayer1} />
         </div>
     );
 };
