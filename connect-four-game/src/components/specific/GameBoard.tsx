@@ -33,13 +33,18 @@ const GameBoard: React.FC = () => {
     })));
     const [board, setBoard] = useState(initialBoard);
     const [gameState, setGameState] = useState(GAME_STATES['isReady']);
+    const [turn, setTurn] = useState(0);
     const [isPlayer1, setIsPlayer1] = useState(true);
     const [lastPutXValue, setLastPutXValue] = useState(-1);
-    const btnLength = X * Y;
+    const pawnSpacesCount = X * Y;
 
     const getCurrentGameState = (): number => {
         console.log(board);
-        return 1;
+        console.log({ turn });
+        if (turn + 1 >= pawnSpacesCount) {
+            return GAME_STATES['isDraw'];
+        }
+        return GAME_STATES['isPlaying'];
     }
 
     const clickHandler = (i: number): void => {
@@ -61,6 +66,7 @@ const GameBoard: React.FC = () => {
         }
         setIsPlayer1(!isPlayer1);
         setBoard(newBoard);
+        setTurn(turn + 1);
         setGameState(getCurrentGameState());
         if (gameState === GAME_STATES['isPlayer1Win']) {
             // player 1 win
@@ -84,7 +90,7 @@ const GameBoard: React.FC = () => {
                 )}
             </div>
             <div className={styles.bgFront}>
-                {Array.from({ length: btnLength }, (_, i) => (
+                {Array.from({ length: pawnSpacesCount }, (_, i) => (
                     <PutButton key={i} onClick={() => clickHandler(i)} />
                 ))}
             </div>
