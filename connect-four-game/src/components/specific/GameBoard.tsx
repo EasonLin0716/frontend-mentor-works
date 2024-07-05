@@ -3,6 +3,11 @@ import styles from './GameBoard.module.css';
 import { GameTurn, GamePawn, PutButton, GameMarker } from '.';
 
 const GameBoard: React.FC = () => {
+    type BoardData = {
+        className: string;
+        isPlayer1: boolean;
+        isSet: boolean;
+    }
     const GAME_STATES = {
         isReady: 0,
         isPlaying: 1,
@@ -13,7 +18,7 @@ const GameBoard: React.FC = () => {
     };
     const X = 7;
     const Y = 6;
-    const initialBoard = Array.from({ length: X }, () => Array.from({ length: Y }, () => ({
+    const initialBoard: BoardData[][] = Array.from({ length: X }, () => Array.from({ length: Y }, (): BoardData => ({
         className: '',
         isPlayer1: false,
         isSet: false,
@@ -25,6 +30,7 @@ const GameBoard: React.FC = () => {
     const btnLength = X * Y;
 
     const getCurrentGameState = (): number => {
+        console.log(board);
         return 1;
     }
 
