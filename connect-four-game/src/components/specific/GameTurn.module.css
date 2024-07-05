@@ -1,12 +1,11 @@
 @value colors: "../../styles/colors.module.css";
-@value colorWhite from colors;
+@value colorWhite, colorBlack from colors;
 @value headings: "../../styles/headings.module.css";
 @value headingL, headingXS from headings;
 
 .wrapper {
     width: 197px;
     height: 165px;
-    background-image: url('/images/turn-background-red.svg');
     position: absolute;
     bottom: -112px;
     left: 50%;
@@ -17,16 +16,38 @@
     padding: 41px 0 26px;
 }
 
+.wrapper.isPlayer1 {
+    background-image: url('/images/turn-background-red.svg');
+}
+
+.wrapper.isPlayer2 {
+    background-image: url('/images/turn-background-yellow.svg');
+}
+
 .name {
-    color: colorWhite;
     text-align: center;
     composes: headingXS;
     text-transform: uppercase;
+}
+
+.name.isPlayer1 {
+    color: colorWhite;
+}
+
+.name.isPlayer2 {
+    color: colorBlack;
 }
 
 .secondWrapper {
     display: flex;
     align-items: end;
     composes: headingL;
+}
+
+.secondWrapper.isPlayer1 {
     color: colorWhite;
+}
+
+.secondWrapper.isPlayer2 {
+    color: colorBlack;
 }

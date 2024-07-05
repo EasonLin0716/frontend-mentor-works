@@ -80,7 +80,7 @@ const GameBoard: React.FC = () => {
                     <PutButton key={i} onClick={() => clickHandler(i)} />
                 ))}
             </div>
-            <GameTurn name="player 1" remainingTime={30} />
+            <GameTurn isPlayer1={isPlayer1} />
             <GameMarker xValue={lastPutXValue} isPlayer1={isPlayer1} />
         </div>
     );
