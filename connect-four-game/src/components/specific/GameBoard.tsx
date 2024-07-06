@@ -2,6 +2,72 @@ import React, { useState, useEffect } from 'react';
 import styles from './GameBoard.module.css';
 import { GameTurn, GamePawn, PutButton, GameMarker } from '.';
 
+function checkVictory(board) {
+    const rows = 6;
+    const cols = 7;
+    const winLength = 4;
+
+    function isWinningLine(line) {
+        if (line.length < winLength) return false;
+        let count = 1;
+        for (let i = 1; i < line.length; i++) {
+            if (line[i].isSet && line[i].isPlayer1 === line[i - 1].isPlayer1) {
+                count++;
+                if (count === winLength) return true;
+            } else {
+                count = 1;
+            }
+        }
+        return false;
+    }
+
+    // 檢查水平線
+    for (let row = 0; row < rows; row++) {
+        for (let col = 0; col <= cols - winLength; col++) {
+            const line = [];
+            for (let k = 0; k < winLength; k++) {
+                line.push(board[col + k][row]);
+            }
+            if (isWinningLine(line)) return true;
+        }
+    }
+
+    // 檢查垂直線
+    for (let col = 0; col < cols; col++) {
+        for (let row = 0; row <= rows - winLength; row++) {
+            const line = [];
+            for (let k = 0; k < winLength; k++) {
+                line.push(board[col][row + k]);
+            }
+            if (isWinningLine(line)) return true;
+        }
+    }
+
+    // 檢查正對角線 (\ 方向)
+    for (let col = 0; col <= cols - winLength; col++) {
+        for (let row = 0; row <= rows - winLength; row++) {
+            const line = [];
+            for (let k = 0; k < winLength; k++) {
+                line.push(board[col + k][row + k]);
+            }
+            if (isWinningLine(line)) return true;
+        }
+    }
+
+    // 檢查反對角線 (/ 方向)
+    for (let col = 0; col <= cols - winLength; col++) {
+        for (let row = winLength - 1; row < rows; row++) {
+            const line = [];
+            for (let k = 0; k < winLength; k++) {
+                line.push(board[col + k][row - k]);
+            }
+            if (isWinningLine(line)) return true;
+        }
+    }
+
+    return false;
+}
+
 const GameBoard: React.FC = () => {
     type BoardData = {
         className: string;
@@ -44,6 +110,9 @@ const GameBoard: React.FC = () => {
         if (turn + 1 >= pawnSpacesCount) {
             return GAME_STATES['isDraw'];
         }
+        if (checkVictory(board)) {
+            return GAME_STATES['isPlayer1Win'];
+        }
         return GAME_STATES['isPlaying'];
     }
 
@@ -69,7 +138,7 @@ const GameBoard: React.FC = () => {
         setTurn(turn + 1);
         setGameState(getCurrentGameState());
         if (gameState === GAME_STATES['isPlayer1Win']) {
-            // player 1 win
+            console.log('player 1 win');
         } else if (gameState === GAME_STATES['isPlayer2Win']) {
             // player 2 win
         }
