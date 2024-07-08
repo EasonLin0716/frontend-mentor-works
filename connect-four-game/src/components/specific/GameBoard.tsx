@@ -30,15 +30,15 @@ const X = 7;
 const Y = 6;
 
 function getIsPlayingOrWinner(board: BoardDataArray): number {
-    const rows = 6;
-    const cols = 7;
+    const rows = Y;
+    const cols = X;
     const winLength = 4;
 
     function _checkWinner(line: BoardData[]) {
         if (line.length < winLength) return 0;
         let count: number = 1;
         for (let i: number = 1; i < line.length; i++) {
-            if (line[i].isSet && line[i].isPlayer1 === line[i - 1].isPlayer1) {
+            if (line[i].isSet && line[i - 1].isSet && line[i].isPlayer1 === line[i - 1].isPlayer1) {
                 count++;
                 if (count === winLength) {
                     return line[i].isPlayer1 ? 1 : 2;
@@ -58,7 +58,9 @@ function getIsPlayingOrWinner(board: BoardDataArray): number {
                 line.push(board[col + k][row]);
             }
             const winner = _checkWinner(line);
-            if (winner !== 0) return winner;
+            if (winner !== 0) {
+                return winner;
+            };
         }
     }
 
@@ -70,7 +72,9 @@ function getIsPlayingOrWinner(board: BoardDataArray): number {
                 line.push(board[col][row + k]);
             }
             const winner = _checkWinner(line);
-            if (winner !== 0) return winner;
+            if (winner !== 0) {
+                return winner;
+            };
         }
     }
 
@@ -82,7 +86,9 @@ function getIsPlayingOrWinner(board: BoardDataArray): number {
                 line.push(board[col + k][row + k]);
             }
             const winner = _checkWinner(line);
-            if (winner !== 0) return winner;
+            if (winner !== 0) {
+                return winner;
+            };
         }
     }
 
@@ -94,7 +100,9 @@ function getIsPlayingOrWinner(board: BoardDataArray): number {
                 line.push(board[col + k][row - k]);
             }
             const winner = _checkWinner(line);
-            if (winner !== 0) return winner;
+            if (winner !== 0) {
+                return winner;
+            };
         }
     }
 
