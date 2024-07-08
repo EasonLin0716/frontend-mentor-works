@@ -2,97 +2,107 @@ import React, { useState, useEffect } from 'react';
 import styles from './GameBoard.module.css';
 import { GameTurn, GamePawn, PutButton, GameMarker } from '.';
 
-function checkVictory(board) {
+type BoardData = {
+    className: string;
+    isPlayer1: boolean;
+    isSet: boolean;
+}
+
+type BoardDataArray = BoardData[][];
+
+type GameStates = {
+    isReady: number;
+    isPlaying: number;
+    player1IsWin: number;
+    player2IsWin: number;
+    isDraw: number;
+    isPaused: number;
+}
+const GAME_STATES: GameStates = {
+    isReady: 0,
+    isPlaying: 1,
+    player1IsWin: 2,
+    player2IsWin: 3,
+    isDraw: 4,
+    isPaused: 5,
+};
+const X = 7;
+const Y = 6;
+
+function getIsPlayingOrWinner(board: BoardDataArray): number {
     const rows = 6;
     const cols = 7;
     const winLength = 4;
 
-    function isWinningLine(line) {
-        if (line.length < winLength) return false;
-        let count = 1;
-        for (let i = 1; i < line.length; i++) {
+    function _checkWinner(line: BoardData[]) {
+        if (line.length < winLength) return 0;
+        let count: number = 1;
+        for (let i: number = 1; i < line.length; i++) {
             if (line[i].isSet && line[i].isPlayer1 === line[i - 1].isPlayer1) {
                 count++;
-                if (count === winLength) return true;
+                if (count === winLength) {
+                    return line[i].isPlayer1 ? 1 : 2;
+                };
             } else {
                 count = 1;
             }
         }
-        return false;
+        return 0;
     }
 
     // 檢查水平線
-    for (let row = 0; row < rows; row++) {
-        for (let col = 0; col <= cols - winLength; col++) {
-            const line = [];
-            for (let k = 0; k < winLength; k++) {
+    for (let row: number = 0; row < rows; row++) {
+        for (let col: number = 0; col <= cols - winLength; col++) {
+            const line: BoardData[] = [];
+            for (let k: number = 0; k < winLength; k++) {
                 line.push(board[col + k][row]);
             }
-            if (isWinningLine(line)) return true;
+            const winner = _checkWinner(line);
+            if (winner !== 0) return winner;
         }
     }
 
     // 檢查垂直線
-    for (let col = 0; col < cols; col++) {
-        for (let row = 0; row <= rows - winLength; row++) {
-            const line = [];
-            for (let k = 0; k < winLength; k++) {
+    for (let col: number = 0; col < cols; col++) {
+        for (let row: number = 0; row <= rows - winLength; row++) {
+            const line: BoardData[] = [];
+            for (let k: number = 0; k < winLength; k++) {
                 line.push(board[col][row + k]);
             }
-            if (isWinningLine(line)) return true;
+            const winner = _checkWinner(line);
+            if (winner !== 0) return winner;
         }
     }
 
     // 檢查正對角線 (\ 方向)
-    for (let col = 0; col <= cols - winLength; col++) {
-        for (let row = 0; row <= rows - winLength; row++) {
-            const line = [];
-            for (let k = 0; k < winLength; k++) {
+    for (let col: number = 0; col <= cols - winLength; col++) {
+        for (let row: number = 0; row <= rows - winLength; row++) {
+            const line: BoardData[] = [];
+            for (let k: number = 0; k < winLength; k++) {
                 line.push(board[col + k][row + k]);
             }
-            if (isWinningLine(line)) return true;
+            const winner = _checkWinner(line);
+            if (winner !== 0) return winner;
         }
     }
 
     // 檢查反對角線 (/ 方向)
-    for (let col = 0; col <= cols - winLength; col++) {
-        for (let row = winLength - 1; row < rows; row++) {
-            const line = [];
-            for (let k = 0; k < winLength; k++) {
+    for (let col: number = 0; col <= cols - winLength; col++) {
+        for (let row: number = winLength - 1; row < rows; row++) {
+            const line: BoardData[] = [];
+            for (let k: number = 0; k < winLength; k++) {
                 line.push(board[col + k][row - k]);
             }
-            if (isWinningLine(line)) return true;
+            const winner = _checkWinner(line);
+            if (winner !== 0) return winner;
         }
     }
 
-    return false;
+    return 0;
 }
 
 const GameBoard: React.FC = () => {
-    type BoardData = {
-        className: string;
-        isPlayer1: boolean;
-        isSet: boolean;
-    }
-    type GameStates = {
-        isReady: number;
-        isPlaying: number;
-        isPlayer1Win: number;
-        isPlayer2Win: number;
-        isDraw: number;
-        isPaused: number;
-    }
-    const GAME_STATES: GameStates = {
-        isReady: 0,
-        isPlaying: 1,
-        isPlayer1Win: 2,
-        isPlayer2Win: 3,
-        isDraw: 4,
-        isPaused: 5,
-    };
-    const X = 7;
-    const Y = 6;
-    const initialBoard: BoardData[][] = Array.from({ length: X }, () => Array.from({ length: Y }, (): BoardData => ({
+    const initialBoard: BoardDataArray = Array.from({ length: X }, () => Array.from({ length: Y }, (): BoardData => ({
         className: '',
         isPlayer1: false,
         isSet: false,
@@ -105,13 +115,15 @@ const GameBoard: React.FC = () => {
     const pawnSpacesCount = X * Y;
 
     const getCurrentGameState = (): number => {
-        console.log(board);
-        console.log({ turn });
         if (turn + 1 >= pawnSpacesCount) {
             return GAME_STATES['isDraw'];
         }
-        if (checkVictory(board)) {
-            return GAME_STATES['isPlayer1Win'];
+        const winner = getIsPlayingOrWinner(board);
+        if (winner === 1) {
+            return GAME_STATES['player1IsWin'];
+        }
+        if (winner === 2) {
+            return GAME_STATES['player2IsWin'];
         }
         return GAME_STATES['isPlaying'];
     }
@@ -136,13 +148,17 @@ const GameBoard: React.FC = () => {
         setIsPlayer1(!isPlayer1);
         setBoard(newBoard);
         setTurn(turn + 1);
-        setGameState(getCurrentGameState());
-        if (gameState === GAME_STATES['isPlayer1Win']) {
-            console.log('player 1 win');
-        } else if (gameState === GAME_STATES['isPlayer2Win']) {
-            // player 2 win
-        }
+        const newGameState = getCurrentGameState();
+        setGameState(newGameState);
     }
+
+    useEffect(() => {
+        if (gameState === GAME_STATES['player1IsWin']) {
+            console.log('player 1 win');
+        } else if (gameState === GAME_STATES['player2IsWin']) {
+            console.log('player 2 win');
+        }
+    }, [gameState]);
 
     useEffect(() => {
         // console.table(board);
