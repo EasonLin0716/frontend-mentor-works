@@ -26,21 +26,19 @@ const GAME_STATES: GameStates = {
     isDraw: 4,
     isPaused: 5,
 };
-const X = 7;
-const Y = 6;
+const COLS: number = 7;
+const ROWS: number = 6;
+const WIN_LENGTH: number = 4;
 
 function getIsPlayingOrWinner(board: BoardDataArray): number {
-    const rows = Y;
-    const cols = X;
-    const winLength = 4;
 
     function _checkWinner(line: BoardData[]) {
-        if (line.length < winLength) return 0;
+        if (line.length < WIN_LENGTH) return 0;
         let count: number = 1;
         for (let i: number = 1; i < line.length; i++) {
             if (line[i].isSet && line[i - 1].isSet && line[i].isPlayer1 === line[i - 1].isPlayer1) {
                 count++;
-                if (count === winLength) {
+                if (count === WIN_LENGTH) {
                     return line[i].isPlayer1 ? 1 : 2;
                 };
             } else {
@@ -51,10 +49,10 @@ function getIsPlayingOrWinner(board: BoardDataArray): number {
     }
 
     // 檢查水平線
-    for (let row: number = 0; row < rows; row++) {
-        for (let col: number = 0; col <= cols - winLength; col++) {
+    for (let row: number = 0; row < ROWS; row++) {
+        for (let col: number = 0; col <= COLS - WIN_LENGTH; col++) {
             const line: BoardData[] = [];
-            for (let k: number = 0; k < winLength; k++) {
+            for (let k: number = 0; k < WIN_LENGTH; k++) {
                 line.push(board[col + k][row]);
             }
             const winner = _checkWinner(line);
@@ -65,10 +63,10 @@ function getIsPlayingOrWinner(board: BoardDataArray): number {
     }
 
     // 檢查垂直線
-    for (let col: number = 0; col < cols; col++) {
-        for (let row: number = 0; row <= rows - winLength; row++) {
+    for (let col: number = 0; col < COLS; col++) {
+        for (let row: number = 0; row <= ROWS - WIN_LENGTH; row++) {
             const line: BoardData[] = [];
-            for (let k: number = 0; k < winLength; k++) {
+            for (let k: number = 0; k < WIN_LENGTH; k++) {
                 line.push(board[col][row + k]);
             }
             const winner = _checkWinner(line);
@@ -79,10 +77,10 @@ function getIsPlayingOrWinner(board: BoardDataArray): number {
     }
 
     // 檢查正對角線 (\ 方向)
-    for (let col: number = 0; col <= cols - winLength; col++) {
-        for (let row: number = 0; row <= rows - winLength; row++) {
+    for (let col: number = 0; col <= COLS - WIN_LENGTH; col++) {
+        for (let row: number = 0; row <= ROWS - WIN_LENGTH; row++) {
             const line: BoardData[] = [];
-            for (let k: number = 0; k < winLength; k++) {
+            for (let k: number = 0; k < WIN_LENGTH; k++) {
                 line.push(board[col + k][row + k]);
             }
             const winner = _checkWinner(line);
@@ -93,10 +91,10 @@ function getIsPlayingOrWinner(board: BoardDataArray): number {
     }
 
     // 檢查反對角線 (/ 方向)
-    for (let col: number = 0; col <= cols - winLength; col++) {
-        for (let row: number = winLength - 1; row < rows; row++) {
+    for (let col: number = 0; col <= COLS - WIN_LENGTH; col++) {
+        for (let row: number = WIN_LENGTH - 1; row < ROWS; row++) {
             const line: BoardData[] = [];
-            for (let k: number = 0; k < winLength; k++) {
+            for (let k: number = 0; k < WIN_LENGTH; k++) {
                 line.push(board[col + k][row - k]);
             }
             const winner = _checkWinner(line);
@@ -110,7 +108,7 @@ function getIsPlayingOrWinner(board: BoardDataArray): number {
 }
 
 const GameBoard: React.FC = () => {
-    const initialBoard: BoardDataArray = Array.from({ length: X }, () => Array.from({ length: Y }, (): BoardData => ({
+    const initialBoard: BoardDataArray = Array.from({ length: COLS }, () => Array.from({ length: ROWS }, (): BoardData => ({
         className: '',
         isPlayer1: false,
         isSet: false,
@@ -120,7 +118,7 @@ const GameBoard: React.FC = () => {
     const [turn, setTurn] = useState(0);
     const [isPlayer1, setIsPlayer1] = useState(true);
     const [lastPutXValue, setLastPutXValue] = useState(-1);
-    const pawnSpacesCount = X * Y;
+    const pawnSpacesCount = COLS * ROWS;
 
     const getCurrentGameState = (): number => {
         if (turn + 1 >= pawnSpacesCount) {
