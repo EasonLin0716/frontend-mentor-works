@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import styles from './GameBoard.module.css';
-import { GameTurn, GamePawn, PutButton, GameMarker } from '.';
+import { GameTurn, GamePawn, PutButton, GameMarker, GameBoardWinner } from '.';
 
 type BoardData = {
     className: string;
@@ -119,6 +119,7 @@ const GameBoard: React.FC = () => {
     const [isPlayer1, setIsPlayer1] = useState(true);
     const [lastPutXValue, setLastPutXValue] = useState(-1);
     const pawnSpacesCount = COLS * ROWS;
+    const isSomeoneWin = useMemo(() => gameState === GAME_STATES['player1IsWin'] || gameState === GAME_STATES['player2IsWin'], [gameState]);
 
     const getCurrentGameState = (): number => {
         if (turn + 1 >= pawnSpacesCount) {
@@ -158,6 +159,14 @@ const GameBoard: React.FC = () => {
         setGameState(newGameState);
     }
 
+    const restartGame = (): void => {
+        setBoard(initialBoard);
+        setGameState(GAME_STATES['isReady']);
+        setTurn(0);
+        setIsPlayer1(true);
+        setLastPutXValue(-1);
+    }
+
     useEffect(() => {
         if (gameState === GAME_STATES['player1IsWin']) {
             console.log('player 1 win');
@@ -185,6 +194,7 @@ const GameBoard: React.FC = () => {
                     <PutButton key={i} onClick={() => clickHandler(i)} />
                 ))}
             </div>
+            {isSomeoneWin && <GameBoardWinner isPlayer1Win={gameState === GAME_STATES['player1IsWin']} playAgain={() => restartGame()} />}
             {gameState === GAME_STATES['isPlaying'] && <GameTurn isPlayer1={isPlayer1} />}
             <GameMarker xValue={lastPutXValue} isPlayer1={isPlayer1} />
         </div>
