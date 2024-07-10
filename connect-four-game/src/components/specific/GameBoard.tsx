@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import styles from './GameBoard.module.css';
 import { GameTurn, GamePawn, PutButton, GameMarker, GameBoardWinner } from '.';
 
@@ -166,18 +166,6 @@ const GameBoard: React.FC = () => {
         setIsPlayer1(true);
         setLastPutXValue(-1);
     }
-
-    useEffect(() => {
-        if (gameState === GAME_STATES['player1IsWin']) {
-            console.log('player 1 win');
-        } else if (gameState === GAME_STATES['player2IsWin']) {
-            console.log('player 2 win');
-        }
-    }, [gameState]);
-
-    useEffect(() => {
-        // console.table(board);
-    }, [board]);
 
     return (
         <div className={styles.wrapper}>
