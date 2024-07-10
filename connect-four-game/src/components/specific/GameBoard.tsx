@@ -1,31 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import styles from './GameBoard.module.css';
 import { GameTurn, GamePawn, PutButton, GameMarker, GameBoardWinner } from '.';
+import { BoardData, BoardDataArray } from '../../types';
+import { GAME_STATES } from '../../constants';
 
-type BoardData = {
-    className: string;
-    isPlayer1: boolean;
-    isSet: boolean;
-}
-
-type BoardDataArray = BoardData[][];
-
-type GameStates = {
-    isReady: number;
-    isPlaying: number;
-    player1IsWin: number;
-    player2IsWin: number;
-    isDraw: number;
-    isPaused: number;
-}
-const GAME_STATES: GameStates = {
-    isReady: 0,
-    isPlaying: 1,
-    player1IsWin: 2,
-    player2IsWin: 3,
-    isDraw: 4,
-    isPaused: 5,
-};
 const COLS: number = 7;
 const ROWS: number = 6;
 const WIN_LENGTH: number = 4;

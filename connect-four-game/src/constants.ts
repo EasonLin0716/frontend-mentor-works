@@ -1,10 +1,5 @@
-type RulesScreenData = {
-    title: string;
-    objectiveSubtitle: string;
-    objectiveDescription: string;
-    howToPlaySubtitle: string;
-    howToPlayDescriptions: string[];
-};
+import { RulesScreenData, GameStates } from "./types";
+
 export const rulesScreenData: RulesScreenData = {
     title: 'rules',
     objectiveSubtitle: 'objective',
@@ -17,4 +12,13 @@ export const rulesScreenData: RulesScreenData = {
         'The game ends when there is a 4-in-a-row or a stalemate.',
         'The starter of the previous game goes second on the next game.',
     ],
+};
+
+export const GAME_STATES: GameStates = {
+    isReady: 0,
+    isPlaying: 1,
+    player1IsWin: 2,
+    player2IsWin: 3,
+    isDraw: 4,
+    isPaused: 5,
 };
