@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import styles from './GameBoard.module.css';
 import { GameTurn, GamePawn, PutButton, GameMarker, GameBoardWinner } from '.';
 import { BoardData, BoardDataArray } from '../../types';
@@ -142,11 +142,16 @@ const GameBoard: React.FC<GameBoardProps> = ({ gameState, startGame, resetGameSt
 
     const restartGame = (): void => {
         setBoard(initialBoard);
-        resetGameState();
         setTurn(0);
         setIsPlayer1(true);
         setLastPutXValue(-1);
     }
+
+    useEffect(() => {
+        if (gameState === GAME_STATES['isReady']) {
+            restartGame();
+        }
+    }, [gameState])
 
     return (
         <div className={styles.wrapper}>
@@ -163,7 +168,7 @@ const GameBoard: React.FC<GameBoardProps> = ({ gameState, startGame, resetGameSt
                     <PutButton key={i} onClick={() => clickHandler(i)} />
                 ))}
             </div>
-            {isSomeoneWin && <GameBoardWinner isPlayer1Win={gameState === GAME_STATES['player1IsWin']} playAgain={() => restartGame()} />}
+            {isSomeoneWin && <GameBoardWinner isPlayer1Win={gameState === GAME_STATES['player1IsWin']} playAgain={() => resetGameState()} />}
             {gameState === GAME_STATES['isPlaying'] && <GameTurn isPlayer1={isPlayer1} />}
             <GameMarker xValue={lastPutXValue} isPlayer1={isPlayer1} />
         </div>

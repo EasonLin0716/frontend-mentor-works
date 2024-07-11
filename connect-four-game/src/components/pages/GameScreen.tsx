@@ -14,14 +14,14 @@ const GameScreen: React.FC = () => {
     const [gameState, setGameState] = useState(GAME_STATES.isReady);
     const nodeRef = useRef<HTMLDivElement>(null);
     const restartGameHandler = () => {
-        console.log('Restarting game');
+        setGameState(GAME_STATES.isReady);
     };
     return (
         <>
             <div className={styles.wrapper}>
                 <GameScreenHeader
                     openMenu={() => setMenuIsOpen(true)}
-                    restartGame={restartGameHandler}
+                    resetGameState={() => restartGameHandler()}
                 />
                 <GameScreenContent
                     gameState={gameState}

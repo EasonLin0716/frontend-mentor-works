@@ -10,7 +10,7 @@ interface GameScreenMenuProps {
 }
 
 const GameScreenMenu = forwardRef<HTMLDivElement, GameScreenMenuProps>(
-    ({ closeMenu }, ref) => {
+    ({ closeMenu, restartGame }, ref) => {
         return (
             <div ref={ref} className={styles.layer}>
                 <div className={styles.menu}>
@@ -18,7 +18,10 @@ const GameScreenMenu = forwardRef<HTMLDivElement, GameScreenMenuProps>(
                     <BigButton className={styles.continueGameBtn} onClick={closeMenu}>
                         continue game
                     </BigButton>
-                    <BigButton className={styles.restartBtn} onClick={() => { }}>
+                    <BigButton className={styles.restartBtn} onClick={() => {
+                        restartGame();
+                        closeMenu();
+                    }}>
                         restart
                     </BigButton>
                     <Link to='/'>

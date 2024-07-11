@@ -5,19 +5,19 @@ import { CircleDotGroup } from './index';
 
 interface GameScreenHeaderProps {
     openMenu: () => void;
-    restartGame: () => void;
+    resetGameState: () => void;
 }
 
 const GameScreenHeader: React.FC<GameScreenHeaderProps> = ({
     openMenu,
-    restartGame,
+    resetGameState,
 }) => {
     return (
         <header className={styles.wrapper}>
             <div className={styles.inner}>
                 <MenuButton openMenu={openMenu} />
                 <CircleDotGroup />
-                <RestartButton onClick={restartGame} />
+                <RestartButton onClick={resetGameState} />
             </div>
         </header>
     );
