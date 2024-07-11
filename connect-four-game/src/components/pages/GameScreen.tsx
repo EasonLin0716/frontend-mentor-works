@@ -7,9 +7,11 @@ import {
     GameScreenContent,
     GameScreenMenu,
 } from '../specific';
+import { GAME_STATES } from '../../constants';
 
 const GameScreen: React.FC = () => {
     const [menuIsOpen, setMenuIsOpen] = useState(false);
+    const [gameState, setGameState] = useState(GAME_STATES.isReady);
     const nodeRef = useRef<HTMLDivElement>(null);
     const restartGameHandler = () => {
         console.log('Restarting game');
@@ -21,7 +23,13 @@ const GameScreen: React.FC = () => {
                     openMenu={() => setMenuIsOpen(true)}
                     restartGame={restartGameHandler}
                 />
-                <GameScreenContent />
+                <GameScreenContent
+                    gameState={gameState}
+                    startGame={() => setGameState(GAME_STATES.isPlaying)}
+                    resetGameState={() => setGameState(GAME_STATES.isReady)}
+                    setWinner={(winner: number) => { setGameState(winner === 1 ? GAME_STATES.player1IsWin : GAME_STATES.player2IsWin) }}
+                    setGameToDraw={() => setGameState(GAME_STATES.isDraw)}
+                />
                 <GameScreenFooter />
             </div>
             <CSSTransition

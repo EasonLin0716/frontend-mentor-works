@@ -4,6 +4,14 @@ import { GameTurn, GamePawn, PutButton, GameMarker, GameBoardWinner } from '.';
 import { BoardData, BoardDataArray } from '../../types';
 import { GAME_STATES } from '../../constants';
 
+interface GameBoardProps {
+    gameState: number;
+    startGame: () => void;
+    resetGameState: () => void;
+    setWinner: (winner: number) => void;
+    setGameToDraw: () => void;
+}
+
 const COLS: number = 7;
 const ROWS: number = 6;
 const WIN_LENGTH: number = 4;
@@ -85,32 +93,28 @@ function getIsPlayingOrWinner(board: BoardDataArray): number {
     return 0;
 }
 
-const GameBoard: React.FC = () => {
+const GameBoard: React.FC<GameBoardProps> = ({ gameState, startGame, resetGameState, setWinner, setGameToDraw }) => {
     const initialBoard: BoardDataArray = Array.from({ length: COLS }, () => Array.from({ length: ROWS }, (): BoardData => ({
         className: '',
         isPlayer1: false,
         isSet: false,
     })));
     const [board, setBoard] = useState(initialBoard);
-    const [gameState, setGameState] = useState(GAME_STATES['isReady']);
     const [turn, setTurn] = useState(0);
     const [isPlayer1, setIsPlayer1] = useState(true);
     const [lastPutXValue, setLastPutXValue] = useState(-1);
     const pawnSpacesCount = COLS * ROWS;
     const isSomeoneWin = useMemo(() => gameState === GAME_STATES['player1IsWin'] || gameState === GAME_STATES['player2IsWin'], [gameState]);
 
-    const getCurrentGameState = (): number => {
+    const updateCurrentGameState = (): number | void => {
         if (turn + 1 >= pawnSpacesCount) {
-            return GAME_STATES['isDraw'];
+            setGameToDraw();
         }
         const winner = getIsPlayingOrWinner(board);
-        if (winner === 1) {
-            return GAME_STATES['player1IsWin'];
+        if (winner === 1 || winner === 2) {
+            return setWinner(winner);
         }
-        if (winner === 2) {
-            return GAME_STATES['player2IsWin'];
-        }
-        return GAME_STATES['isPlaying'];
+        return startGame();
     }
 
     const clickHandler = (i: number): void => {
@@ -133,13 +137,12 @@ const GameBoard: React.FC = () => {
         setIsPlayer1(!isPlayer1);
         setBoard(newBoard);
         setTurn(turn + 1);
-        const newGameState = getCurrentGameState();
-        setGameState(newGameState);
+        updateCurrentGameState();
     }
 
     const restartGame = (): void => {
         setBoard(initialBoard);
-        setGameState(GAME_STATES['isReady']);
+        resetGameState();
         setTurn(0);
         setIsPlayer1(true);
         setLastPutXValue(-1);
