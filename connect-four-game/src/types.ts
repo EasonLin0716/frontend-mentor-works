@@ -2,6 +2,7 @@ export type BoardData = {
     className: string;
     isPlayer1: boolean;
     isSet: boolean;
+    isCircled: boolean;
 }
 
 export type BoardDataArray = BoardData[][];

@@ -25,6 +25,9 @@ function getIsPlayingOrWinner(board: BoardDataArray): number {
             if (line[i].isSet && line[i - 1].isSet && line[i].isPlayer1 === line[i - 1].isPlayer1) {
                 count++;
                 if (count === WIN_LENGTH) {
+                    for (let j: number = 0; j < line.length; j++) {
+                        line[j].isCircled = true;
+                    }
                     return line[i].isPlayer1 ? 1 : 2;
                 };
             } else {
@@ -98,6 +101,7 @@ const GameBoard: React.FC<GameBoardProps> = ({ gameState, startGame, resetGameSt
         className: '',
         isPlayer1: false,
         isSet: false,
+        isCircled: false,
     })));
     const [board, setBoard] = useState(initialBoard);
     const [turn, setTurn] = useState(0);
@@ -133,6 +137,7 @@ const GameBoard: React.FC<GameBoardProps> = ({ gameState, startGame, resetGameSt
             className: `x-${putX} y-${putY}`,
             isPlayer1,
             isSet: true,
+            isCircled: false,
         }
         setIsPlayer1(!isPlayer1);
         setBoard(newBoard);
@@ -159,7 +164,7 @@ const GameBoard: React.FC<GameBoardProps> = ({ gameState, startGame, resetGameSt
             <div className={styles.pawns}>
                 {board.map((col, x) =>
                     col.map((p, y) =>
-                        board[x][y]['isSet'] && <GamePawn key={`${x}-${y}`} isPlayer1={board[x][y]['isPlayer1']} className={`${p.className} ${styles.pawn}`} />
+                        board[x][y]['isSet'] && <GamePawn key={`${x}-${y}`} isPlayer1={board[x][y]['isPlayer1']} isCircled={board[x][y]['isCircled']} className={`${p.className} ${styles.pawn}`} />
                     )
                 )}
             </div>

@@ -1,6 +1,12 @@
+@value colors: "../../styles/colors.module.css";
+@value colorWhite, colorPink, colorYellow from colors;
+
 .wrapper {
     width: 70px;
     height: 75px;
+    display: flex;
+    justify-content: center;    
+    align-items: center;
 }
 
 .wrapper.isPlayer1 {
@@ -9,4 +15,28 @@
 
 .wrapper.isPlayer2 {
     background-image: url('/images/counter-yellow-large.svg');
+}
+
+.outerCircle {
+    width: 32px;
+    height: 32px;
+    background-color: colorWhite;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.innerCircle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.innerCirclePlayer1 {
+    background-color: colorPink;
+}
+
+.innerCirclePlayer2 {
+    background-color: colorYellow;
 }
