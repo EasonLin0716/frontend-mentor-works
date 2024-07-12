@@ -122,6 +122,7 @@ const GameBoard: React.FC<GameBoardProps> = ({ gameState, startGame, resetGameSt
     }
 
     const clickHandler = (i: number): void => {
+        if (gameState !== GAME_STATES['isPlaying'] && gameState !== GAME_STATES['isReady']) return;
         const putX = i % 7;
         setLastPutXValue(putX);
         let putY = 0;

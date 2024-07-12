@@ -1,5 +1,5 @@
 @value colors: "../../styles/colors.module.css";
-@value colorDarkPurple from colors;
+@value colorDarkPurple, colorPink, colorYellow from colors;
 
 .wrapper {
     position: absolute;
@@ -8,4 +8,13 @@
     background-color: colorDarkPurple;
     height: 200px;
     border-radius: 60px 60px 0 0;
+    transition: background-color 0.3s;
+}
+
+.player1IsWin {
+    background-color: colorPink;
+}
+
+.player2IsWin {
+    background-color: colorYellow;
 }

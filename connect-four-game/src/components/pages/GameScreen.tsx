@@ -30,7 +30,7 @@ const GameScreen: React.FC = () => {
                     setWinner={(winner: number) => { setGameState(winner === 1 ? GAME_STATES.player1IsWin : GAME_STATES.player2IsWin) }}
                     setGameToDraw={() => setGameState(GAME_STATES.isDraw)}
                 />
-                <GameScreenFooter />
+                <GameScreenFooter gameState={gameState} />
             </div>
             <CSSTransition
                 in={menuIsOpen}
