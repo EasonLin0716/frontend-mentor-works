@@ -1,5 +1,7 @@
 @value colors: "../../styles/colors.module.css";
 @value colorPurple, colorDarkPurple, colorBlack from colors;
+@value breakpoints: "../../styles/breakpoints.module.css";
+@value mobile from breakpoints;
 
 .wrapper {
     background-color: colorDarkPurple;
@@ -8,6 +10,9 @@
     align-items: start;
     padding-top: 182px;
     min-height: 100vh;
+    @media (max-width: mobile) {
+        padding-top: 200px;
+    }
 }
 
 .section {
@@ -16,6 +21,13 @@
     box-shadow: 0 10px 0 0 colorBlack;
     border-radius: 40px;
     padding: 70px 40px 60px 40px;
+    @media (max-width: mobile) {
+        border: 0;
+        box-shadow: none;
+        border-radius: 0;
+        background-color: transparent;
+        padding: 0;
+    }
 }
 
 .buttonGroup {
