@@ -12,6 +12,7 @@
     min-height: 100vh;
     @media (max-width: mobile) {
         padding-top: 200px;
+        background-color: colorPurple;
     }
 }
 

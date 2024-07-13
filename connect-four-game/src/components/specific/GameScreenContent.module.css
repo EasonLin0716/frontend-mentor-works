@@ -1,6 +1,12 @@
 .wrapper {
     display: flex;
     justify-content: center;
+}
+
+.inner {
+    display: flex;
+    justify-content: space-between;
     align-items: start;
-    gap: 60px;
+    max-width: 1023px;
+    width: 100%;
 }

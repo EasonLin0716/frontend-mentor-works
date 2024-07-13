@@ -22,26 +22,28 @@ const GameScreenContent: React.FC<GameScreenContentProps> = ({ gameState, startG
         }
     }
     return <div className={styles.wrapper}>
-        <CompetitorBoard
-            name="player 1"
-            score={player1Score}
-            face="/images/player-one.svg"
-        />
-        <GameBoard
-            gameState={gameState}
-            startGame={() => startGame()}
-            resetGameState={() => resetGameState()}
-            setWinner={(winner: number) => {
-                addScore(winner)
-                setWinner(winner)
-            }}
-            setGameToDraw={() => setGameToDraw}
-        />
-        <CompetitorBoard
-            name="player 2"
-            score={player2Score}
-            face="/images/player-two.svg"
-        />
+        <div className={styles.inner}>
+            <CompetitorBoard
+                name="player 1"
+                score={player1Score}
+                face="/images/player-one.svg"
+            />
+            <GameBoard
+                gameState={gameState}
+                startGame={() => startGame()}
+                resetGameState={() => resetGameState()}
+                setWinner={(winner: number) => {
+                    addScore(winner)
+                    setWinner(winner)
+                }}
+                setGameToDraw={() => setGameToDraw}
+            />
+            <CompetitorBoard
+                name="player 2"
+                score={player2Score}
+                face="/images/player-two.svg"
+            />
+        </div>
     </div>
 };
 
