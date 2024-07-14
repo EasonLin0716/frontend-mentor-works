@@ -2,6 +2,8 @@
 @value colorWhite, colorBlack from colors;
 @value headings: "../../styles/headings.module.css";
 @value headingL, headingXS from headings;
+@value breakpoints: "../../styles/breakpoints.module.css";
+@value tablet from breakpoints;
 
 .wrapper {
     width: 197px;
@@ -14,6 +16,9 @@
     flex-direction: column;
     align-items: center;
     padding: 41px 0 26px;
+    @media (max-width: tablet) {
+        bottom: 48px;
+    }
 }
 
 .wrapper.isPlayer1 {

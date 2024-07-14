@@ -2,6 +2,8 @@
 @value colorBlack, colorWhite from colors;
 @value headings: "../../styles/headings.module.css";
 @value headingXS, headingL from headings;
+@value breakpoints: "../../styles/breakpoints.module.css";
+@value tablet from breakpoints;
 
 .wrapper {
     position: absolute;
@@ -18,6 +20,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media (max-width: tablet) {
+        bottom: 48px;
+    }
 }
 
 .name {

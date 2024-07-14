@@ -21,7 +21,7 @@
 
 .leftBoard {
     @media (max-width: tablet) {
-        left: 0;
+        left: 27px;
     }
 }
 
@@ -33,7 +33,7 @@
 
 .rightBoard {
     @media (max-width: tablet) {
-        right: 0;
+        right: 27px;
         flex-direction: row-reverse;
     }
 }
