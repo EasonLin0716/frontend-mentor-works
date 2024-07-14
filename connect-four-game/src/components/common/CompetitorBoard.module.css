@@ -2,6 +2,8 @@
 @value colorBlack, colorWhite from colors;
 @value headings: "../../styles/headings.module.css";
 @value headingS, headingL from headings;
+@value breakpoints: "../../styles/breakpoints.module.css";
+@value tablet from breakpoints;
 
 .wrapper {
     position: relative;
@@ -11,6 +13,17 @@
     box-shadow: 0px 10px 0px 0px colorBlack;
     padding: 43px 24px 14px 26px;
     margin-top: 195px;
+    @media (max-width: tablet) {
+        position: absolute;
+        margin-top: 0;
+        max-width: 278px;
+        width: 100%;
+        padding: 14px 44px 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        top: -132px;
+    }
 }
 
 .name {
@@ -31,4 +44,8 @@
     top: -27px;
     left: 50%;
     transform: translateX(-50%);
+    @media (max-width: tablet) {
+        top: 50%;
+        transform: translateY(-50%);
+    }
 }

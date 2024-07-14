@@ -24,6 +24,7 @@ const GameScreenContent: React.FC<GameScreenContentProps> = ({ gameState, startG
     return <div className={styles.wrapper}>
         <div className={styles.inner}>
             <CompetitorBoard
+                className={styles.leftBoard}
                 name="player 1"
                 score={player1Score}
                 face="/images/player-one.svg"
@@ -39,6 +40,7 @@ const GameScreenContent: React.FC<GameScreenContentProps> = ({ gameState, startG
                 setGameToDraw={() => setGameToDraw}
             />
             <CompetitorBoard
+                className={styles.rightBoard}
                 name="player 2"
                 score={player2Score}
                 face="/images/player-two.svg"

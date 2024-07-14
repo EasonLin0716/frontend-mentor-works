@@ -1,7 +1,13 @@
+@value breakpoints: "../../styles/breakpoints.module.css";
+@value tablet from breakpoints;
+
 .wrapper {
     display: flex;
     justify-content: center;
     margin-bottom: 51px;
+    @media (max-width: tablet) {
+        margin-bottom: 164px;
+    }
 }
 
 .inner {

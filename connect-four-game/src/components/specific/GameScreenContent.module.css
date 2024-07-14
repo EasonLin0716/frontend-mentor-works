@@ -1,3 +1,6 @@
+@value breakpoints: "../../styles/breakpoints.module.css";
+@value tablet from breakpoints;
+
 .wrapper {
     display: flex;
     justify-content: center;
@@ -9,4 +12,35 @@
     align-items: start;
     max-width: 1023px;
     width: 100%;
+    @media (max-width: tablet) {
+        justify-content: center;
+        max-width: 632px;
+        position: relative;
+    }
+}
+
+.leftBoard {
+    @media (max-width: tablet) {
+        left: 0;
+    }
+}
+
+.leftBoard img {
+    @media (max-width: tablet) {
+        left: -27px;
+    }
+}
+
+.rightBoard {
+    @media (max-width: tablet) {
+        right: 0;
+        flex-direction: row-reverse;
+    }
+}
+
+.rightBoard img {
+    @media (max-width: tablet) {
+        left: unset;
+        right: -27px;
+    }
 }
