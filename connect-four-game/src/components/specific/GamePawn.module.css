@@ -1,12 +1,18 @@
 @value colors: "../../styles/colors.module.css";
 @value colorWhite, colorPink, colorYellow from colors;
+@value breakpoints: "../../styles/breakpoints.module.css";
+@value tablet, tabletMini, mobile from breakpoints;
 
 .wrapper {
     width: 70px;
-    height: 75px;
+    aspect-ratio: 70 / 75;
     display: flex;
     justify-content: center;    
     align-items: center;
+    background-size: cover;
+    @media (max-width: tabletMini) {
+        width: 11.08%;
+    }
 }
 
 .wrapper.isPlayer1 {
@@ -19,18 +25,24 @@
 
 .outerCircle {
     width: 32px;
-    height: 32px;
+    aspect-ratio: 1 / 1;
     background-color: colorWhite;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (max-width: tabletMini) {
+        width: 45.71%;
+    }
 }
 
 .innerCircle {
+    aspect-ratio: 1 / 1;
     width: 20px;
-    height: 20px;
     border-radius: 50%;
+    @media (max-width: tabletMini) {
+        width: 50%;
+    }
 }
 
 .innerCirclePlayer1 {

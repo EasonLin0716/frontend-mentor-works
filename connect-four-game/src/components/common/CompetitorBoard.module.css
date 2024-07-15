@@ -3,7 +3,7 @@
 @value headings: "../../styles/headings.module.css";
 @value headingXS, headingS, headingMM, headingL from headings;
 @value breakpoints: "../../styles/breakpoints.module.css";
-@value tablet, tabletMini from breakpoints;
+@value tablet, tabletMini, mobile from breakpoints;
 
 .wrapper {
     position: relative;
@@ -28,6 +28,11 @@
         flex-direction: column;
         width: calc(50% - 37px);
         padding: 10px 38px 9px 36px;
+    }
+    @media (max-width: mobile) {
+        width: calc(50% - 27px);
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 

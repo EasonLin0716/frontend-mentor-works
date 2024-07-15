@@ -1,35 +1,40 @@
+@value breakpoints: "../../styles/breakpoints.module.css";
+@value tablet, tabletMini, mobile from breakpoints;
+
 .wrapper {
     position: absolute;
     top: -36px;
     left: 0;
-    transition: transform 0.5s;
-    will-change: transform;
+    transition: left 0.5s;
+    @media (max-width: tabletMini) {
+        display: none;
+    }
 }
 
 .xCor0 {
-    transform: translateX(32px);
+    left: calc(5.06%); /* 32px / 632px */
 }
 
 .xCor1 {
-    transform: translateX(120px);
+    left: calc(18.99%); /* 120px / 632px */
 }
 
 .xCor2 {
-    transform: translateX(208px);
+    left: calc(32.91%); /* 208px / 632px */
 }
 
 .xCor3 {
-    transform: translateX(296px);
+    left: calc(46.83%); /* 296px / 632px */
 }
 
 .xCor4 {
-    transform: translateX(384px);
+    left: calc(60.76%); /* 384px / 632px */
 }
 
 .xCor5 {
-    transform: translateX(472px);
+    left: calc(74.68%); /* 472px / 632px */
 }
 
 .xCor6 {
-    transform: translateX(560px);
+    left: calc(88.61%); /* 560px / 632px */
 }

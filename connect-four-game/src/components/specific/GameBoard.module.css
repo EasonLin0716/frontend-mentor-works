@@ -28,8 +28,8 @@
 }
 
 .bgFront {
+    aspect-ratio: 632 / 594;
     width: 100%;
-    height: 100%;
     background-image: url('/images/board-layer-white-large.svg');
     background-size: contain;
     background-repeat: no-repeat;
@@ -42,7 +42,10 @@
     grid-template-columns: repeat(7, 1fr);
     gap: 16px 16px;
     padding: 17px 17px 66px 16px;
-
+    @media (max-width: tabletMini) {
+        gap: 2.53%;
+        padding: 2.69% 2.69% 10.44% 2.53%;
+    }
 }
 
 .pawn {

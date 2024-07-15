@@ -3,7 +3,7 @@
 @value headings: "../../styles/headings.module.css";
 @value headingXS, headingL from headings;
 @value breakpoints: "../../styles/breakpoints.module.css";
-@value tablet from breakpoints;
+@value tablet, mobile from breakpoints;
 
 .wrapper {
     position: absolute;
@@ -22,6 +22,9 @@
     align-items: center;
     @media (max-width: tablet) {
         bottom: 48px;
+    }
+    @media (max-width: mobile) {    
+        bottom: 24px;
     }
 }
 

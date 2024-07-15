@@ -1,5 +1,5 @@
 @value breakpoints: "../../styles/breakpoints.module.css";
-@value tablet from breakpoints;
+@value tablet, mobile from breakpoints;
 
 .wrapper {
     display: flex;
@@ -7,6 +7,9 @@
     margin-bottom: 51px;
     @media (max-width: tablet) {
         margin-bottom: 164px;
+    }
+    @media (max-width: mobile) {
+        margin-bottom: 180px;
     }
 }
 
@@ -16,4 +19,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media (max-width: mobile) {
+        padding: 0 20px;
+    }
 }

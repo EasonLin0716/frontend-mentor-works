@@ -17,6 +17,9 @@
         max-width: 632px;
         position: relative;
     }
+    @media (max-width: tabletMini) {
+        margin: 0 19px;
+    }
 }
 
 .leftBoard {
