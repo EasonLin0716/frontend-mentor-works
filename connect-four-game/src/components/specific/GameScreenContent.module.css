@@ -1,5 +1,5 @@
 @value breakpoints: "../../styles/breakpoints.module.css";
-@value tablet from breakpoints;
+@value tablet, tabletMini from breakpoints;
 
 .wrapper {
     display: flex;
@@ -23,6 +23,9 @@
     @media (max-width: tablet) {
         left: 27px;
     }
+    @media (max-width: tabletMini) {
+        left: 15px;
+    }
 }
 
 .leftBoard img {
@@ -35,6 +38,9 @@
     @media (max-width: tablet) {
         right: 27px;
         flex-direction: row-reverse;
+    }
+    @media (max-width: tabletMini) {
+        right: 15px;
     }
 }
 

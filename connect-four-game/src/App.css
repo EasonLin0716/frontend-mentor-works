@@ -3,51 +3,58 @@ a {
 }
 
 .x-0 {
-    left: 17px;
+    /* 17 / 632 */
+    left: 2.69%;
 }
 
 .x-1 {
-    left: 105px;
+    /* 105 / 632 */
+    left: 16.61%;
 }
 
 .x-2 {
-    left: 193px;
+    /* 193 / 632 */
+    left: 30.57%;
 }
 
 .x-3 {
-    left: 281px;
+    /* 281 / 632 */
+    left: 44.43%;
 }
 
 .x-4 {
-    left: 369px;
+    /* 369 / 632 */
+    left: 58.38%;
 }
 
 .x-5 {
-    left: 457px;
+    /* 457 / 632 */
+    left: 72.29%;
 }
 
 .x-6 {
-    left: 545px;
+    /* 545 / 632 */
+    left: 86.14%;
 }
 
 @keyframes y-0-animation {
     0% {
-        transform: translateY(0);
+        top: 0%;
     }
     20% {
-        transform: translateY(36px); /* 下落到地板 */
+        top: calc(100% * 36 / 594); /* 36px */
     }
     40% {
-        transform: translateY(18px); /* 上彈到中間位置 */
+        top: calc(100% * 18 / 594); /* 18px */
     }
     60% {
-        transform: translateY(36px); /* 再次下落到地板 */
+        top: calc(100% * 36 / 594); /* 36px */
     }
     80% {
-        transform: translateY(27px); /* 再次上彈，幅度減小 */
+        top: calc(100% * 27 / 594); /* 27px */
     }
     100% {
-        transform: translateY(36px); /* 最終回到地板 */
+        top: calc(100% * 36 / 594); /* 36px */
     }
 }
 
@@ -57,34 +64,34 @@ a {
 
 @keyframes y-1-animation {
     0% {
-        transform: translateY(0);
+        top: 0%;
     }
     20% {
-        transform: translateY(124px);
+        top: calc(100% * 124 / 594); /* 124px */
     }
     30% {
-        transform: translateY(62px);
+        top: calc(100% * 62 / 594); /* 62px */
     }
     40% {
-        transform: translateY(124px);
+        top: calc(100% * 124 / 594); /* 124px */
     }
     50% {
-        transform: translateY(93px);
+        top: calc(100% * 93 / 594); /* 93px */
     }
     60% {
-        transform: translateY(124px);
+        top: calc(100% * 124 / 594); /* 124px */
     }
     70% {
-        transform: translateY(109px);
+        top: calc(100% * 109 / 594); /* 109px */
     }
     80% {
-        transform: translateY(124px);
+        top: calc(100% * 124 / 594); /* 124px */
     }
     90% {
-        transform: translateY(117px);
+        top: calc(100% * 117 / 594); /* 117px */
     }
     100% {
-        transform: translateY(124px);
+        top: calc(100% * 124 / 594); /* 124px */
     }
 }
 
@@ -94,71 +101,70 @@ a {
 
 @keyframes y-2-animation {
     0% {
-        transform: translateY(0);
+        top: 0%;
     }
     20% {
-        transform: translateY(212px);
+        top: calc(100% * 212 / 594); /* 212px */
     }
     30% {
-        transform: translateY(106px);
+        top: calc(100% * 106 / 594); /* 106px */
     }
     40% {
-        transform: translateY(212px); 
+        top: calc(100% * 212 / 594); /* 212px */
     }
     50% {
-        transform: translateY(159px); 
+        top: calc(100% * 159 / 594); /* 159px */
     }
     60% {
-        transform: translateY(212px); 
+        top: calc(100% * 212 / 594); /* 212px */
     }
     70% {
-        transform: translateY(185px); 
+        top: calc(100% * 185 / 594); /* 185px */
     }
     80% {
-        transform: translateY(212px); 
+        top: calc(100% * 212 / 594); /* 212px */
     }
     90% {
-        transform: translateY(198px); 
+        top: calc(100% * 198 / 594); /* 198px */
     }
     100% {
-        transform: translateY(212px);
+        top: calc(100% * 212 / 594); /* 212px */
     }
 }
 
 .y-2 {
     animation: y-2-animation 0.7s cubic-bezier(.25,.75,.5,1) both;
 }
-
 @keyframes y-3-animation {
     0% {
-        transform: translateY(0);
+        top: 0%;
     }
     20% {
-        transform: translateY(300px);
+        top: calc(100% * 300 / 594); /* 300px */
     }
     30% {
-        transform: translateY(150px);
+        top: calc(100% * 150 / 594); /* 150px */
     }
     40% {
-        transform: translateY(300px); 
+        top: calc(100% * 300 / 594); /* 300px */
     }
     50% {
-        transform: translateY(225px); 
+        top: calc(100% * 225 / 594); /* 225px */
     }
     60% {
-        transform: translateY(300px); 
+        top: calc(100% * 300 / 594); /* 300px */
     }
     70% {
-        transform: translateY(262px); 
+        top: calc(100% * 262 / 594); /* 262px */
     }
     80% {
-        transform: translateY(300px); 
+        top: calc(100% * 300 / 594); /* 300px */
     }
     90% {
-        transform: translateY(281px); 
+        top: calc(100% * 281 / 594); /* 281px */
     }
     100% {
-        transform: translateY(300px); /* 最終回到地板 */
+        top: calc(100% * 300 / 594); /* 300px */
     }
 }
 
@@ -168,34 +174,34 @@ a {
 
 @keyframes y-4-animation {
     0% {
-        transform: translateY(0);
+        top: 0%;
     }
     20% {
-        transform: translateY(388px);
+        top: calc(100% * 388 / 594); /* 388px */
     }
     30% {
-        transform: translateY(194px); 
+        top: calc(100% * 194 / 594); /* 194px */
     }
     40% {
-        transform: translateY(388px);
+        top: calc(100% * 388 / 594); /* 388px */
     }
     50% {
-        transform: translateY(291px);
+        top: calc(100% * 291 / 594); /* 291px */
     }
     60% {
-        transform: translateY(388px);
+        top: calc(100% * 388 / 594); /* 388px */
     }
     70% {
-        transform: translateY(339px);
+        top: calc(100% * 339 / 594); /* 339px */
     }
     80% {
-        transform: translateY(388px); 
+        top: calc(100% * 388 / 594); /* 388px */
     }
     90% {
-        transform: translateY(364px); 
+        top: calc(100% * 364 / 594); /* 364px */
     }
     100% {
-        transform: translateY(388px);
+        top: calc(100% * 388 / 594); /* 388px */
     }
 }
 
@@ -205,34 +211,34 @@ a {
 
 @keyframes y-5-animation {
     0% {
-        transform: translateY(0);
+        top: 0%;
     }
     20% {
-        transform: translateY(476px); 
+        top: calc(100% * 476 / 594); /* 476px */
     }
     30% {
-        transform: translateY(238px); 
+        top: calc(100% * 238 / 594); /* 238px */
     }
     40% {
-        transform: translateY(476px);
+        top: calc(100% * 476 / 594); /* 476px */
     }
     50% {
-        transform: translateY(357px);
+        top: calc(100% * 357 / 594); /* 357px */
     }
     60% {
-        transform: translateY(476px);
+        top: calc(100% * 476 / 594); /* 476px */
     }
     70% {
-        transform: translateY(416px);
+        top: calc(100% * 416 / 594); /* 416px */
     }
     80% {
-        transform: translateY(476px);
+        top: calc(100% * 476 / 594); /* 476px */
     }
     90% {
-        transform: translateY(456px);
+        top: calc(100% * 456 / 594); /* 456px */
     }
     100% {
-        transform: translateY(476px);
+        top: calc(100% * 476 / 594); /* 476px */
     }
 }
 

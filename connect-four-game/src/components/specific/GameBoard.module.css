@@ -1,5 +1,5 @@
 @value breakpoints: "../../styles/breakpoints.module.css";
-@value tablet, mobile from breakpoints;
+@value tablet, tabletMini, mobile from breakpoints;
 
 .wrapper {
     position: relative;
@@ -19,6 +19,12 @@
     background-repeat: no-repeat;
     background-position: top center;
     position: absolute;
+}
+
+.pawns {
+    aspect-ratio: 632 / 594;
+    height: auto;
+    position: relative;
 }
 
 .bgFront {
@@ -41,7 +47,7 @@
 
 .pawn {
     position: absolute;
-    top: -20px;
-    transform: translateY(0);
+    top: 0;
+    transform: translateY(-20px);
     will-change: transform;
 }
