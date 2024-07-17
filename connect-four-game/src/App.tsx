@@ -1,8 +1,8 @@
 import { MainMenuScreen, GameScreen, RulesScreen } from './components/pages';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 
-const router = createBrowserRouter(
+const router = createHashRouter(
     [
         {
             path: '/',
@@ -17,9 +17,6 @@ const router = createBrowserRouter(
             element: <RulesScreen />,
         },
     ],
-    {
-        basename: '/frontend-mentor-works/connect-four-game/dist'
-    }
 );
 
 function App() {
