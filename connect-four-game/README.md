@@ -1,3 +1,20 @@
 # Connect-four-game
 
-This project is still under development 🚧
+A classic connect four game with React, React Router, CSS module, TypeScript and Vite.
+
+- Demo - [Github Page](https://easonlin0716.github.io/frontend-mentor-works/connect-four-game/dist/#/)
+- Source Code - [Github Repo](https://github.com/EasonLin0716/frontend-mentor-works/tree/main/connect-four-game)
+- Frontend Mentor - [Frontend Mentor](https://www.frontendmentor.io/profile/EasonLin0716)
+
+## TODOs
+
+Here are some todos which I may, or may not do:
+
+### High Priority
+
+- Define types: Since it's developed using TypeScript, types should be defined.
+
+### Someday
+
+- Better CPU behaviors
+- Playing online (Using WebSocket, so a backend server is needed)
