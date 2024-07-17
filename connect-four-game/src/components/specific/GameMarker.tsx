@@ -11,7 +11,7 @@ const GameMarker: React.FC<GameMarkerProps> = ({ xValue, isPlayer1 }) => {
     return (
         xValue > -1 &&
         <div className={`${styles.wrapper} ${styles[`xCor${xValue}`]}`}>
-            <img src={`/images/marker-${renderingMarkerColor}.svg`} alt="" />
+            <img src={`./images/marker-${renderingMarkerColor}.svg`} alt="" />
         </div>
     );
 };

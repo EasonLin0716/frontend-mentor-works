@@ -37,7 +37,7 @@ const RulesScreen: React.FC = () => {
                 </div>
                 <Link to='/'>
                     <button className={styles.backButton}>
-                        <img src='/images/confirm.svg' alt='' width={28} />
+                        <img src='./images/confirm.svg' alt='' width={28} />
                     </button>
                 </Link>
             </div>

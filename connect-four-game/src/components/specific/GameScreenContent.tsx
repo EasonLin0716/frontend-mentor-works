@@ -30,7 +30,7 @@ const GameScreenContent: React.FC<GameScreenContentProps> = ({ gameState, startG
                 className={styles.leftBoard}
                 name={isCpuMode ? "you" : "player 1"}
                 score={player1Score}
-                face="/images/player-one.svg"
+                face="./images/player-one.svg"
             />
             <GameBoard
                 gameState={gameState}
@@ -47,7 +47,7 @@ const GameScreenContent: React.FC<GameScreenContentProps> = ({ gameState, startG
                 className={styles.rightBoard}
                 name={isCpuMode ? "cpu" : "player 2"}
                 score={player2Score}
-                face={isCpuMode ? "/images/cpu.svg" : "/images/player-two.svg"}
+                face={isCpuMode ? "./images/cpu.svg" : "./images/player-two.svg"}
             />
         </div>
     </div>

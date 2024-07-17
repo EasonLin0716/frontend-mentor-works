@@ -8,7 +8,7 @@ const VSCPUButton: React.FC = () => {
         <Link to='/game/player'>
             <Button className={styles.wrapper}>
                 <span className={styles.text}>play vs player</span>
-                <img src='/images/player-vs-player.svg' alt='' />
+                <img src='./images/player-vs-player.svg' alt='' />
             </Button>
         </Link>
     );
