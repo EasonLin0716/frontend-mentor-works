@@ -9,16 +9,13 @@
     width: 197px;
     height: 165px;
     position: absolute;
-    bottom: -112px;
+    bottom: 48px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 41px 0 26px;
-    @media (max-width: tablet) {
-        bottom: 48px;
-    }
     @media (max-width: mobile) {    
         bottom: 24px;
     }
