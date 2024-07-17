@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import { useParams } from 'react-router-dom';
 import styles from './GameScreenContent.module.css';
 import { GameBoard } from '.';
 import CompetitorBoard from '../common/CompetitorBoard';
@@ -12,6 +13,8 @@ interface GameScreenContentProps {
 }
 
 const GameScreenContent: React.FC<GameScreenContentProps> = ({ gameState, startGame, resetGameState, setWinner, setGameToDraw }) => {
+    const { mode } = useParams<{ mode: string }>();
+    const isCpuMode = useMemo(() => mode === 'cpu', [mode]);
     const [player1Score, setPlayer1Score] = useState(0);
     const [player2Score, setPlayer2Score] = useState(0);
     const addScore = (winner: number) => {
@@ -25,12 +28,13 @@ const GameScreenContent: React.FC<GameScreenContentProps> = ({ gameState, startG
         <div className={styles.inner}>
             <CompetitorBoard
                 className={styles.leftBoard}
-                name="player 1"
+                name={isCpuMode ? "you" : "player 1"}
                 score={player1Score}
                 face="/images/player-one.svg"
             />
             <GameBoard
                 gameState={gameState}
+                isCpuMode={isCpuMode}
                 startGame={() => startGame()}
                 resetGameState={() => resetGameState()}
                 setWinner={(winner: number) => {
@@ -41,9 +45,9 @@ const GameScreenContent: React.FC<GameScreenContentProps> = ({ gameState, startG
             />
             <CompetitorBoard
                 className={styles.rightBoard}
-                name="player 2"
+                name={isCpuMode ? "cpu" : "player 2"}
                 score={player2Score}
-                face="/images/player-two.svg"
+                face={isCpuMode ? "/images/cpu.svg" : "/images/player-two.svg"}
             />
         </div>
     </div>

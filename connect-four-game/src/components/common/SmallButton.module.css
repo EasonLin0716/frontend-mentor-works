@@ -2,6 +2,8 @@
 @value headingXS from headings;
 @value colors: "../../styles/colors.module.css";
 @value colorPink, colorDarkPurple, colorWhite from colors;
+@value breakpoints: "../../styles/breakpoints.module.css";
+@value mobile from breakpoints;
 
 .wrapper {
     height: 39px;
@@ -21,5 +23,11 @@
 
     &:hover {
         background-color: colorPink;
+    }
+
+    @media (max-width: mobile) {
+        &:hover {
+            background-color: colorDarkPurple;
+        }
     }
 }

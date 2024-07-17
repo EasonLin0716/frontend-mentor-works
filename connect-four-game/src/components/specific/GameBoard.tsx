@@ -6,6 +6,7 @@ import { GAME_STATES } from '../../constants';
 
 interface GameBoardProps {
     gameState: number;
+    isCpuMode: boolean;
     startGame: () => void;
     resetGameState: () => void;
     setWinner: (winner: number) => void;
@@ -96,7 +97,7 @@ function getIsPlayingOrWinner(board: BoardDataArray): number {
     return 0;
 }
 
-const GameBoard: React.FC<GameBoardProps> = ({ gameState, startGame, resetGameState, setWinner, setGameToDraw }) => {
+const GameBoard: React.FC<GameBoardProps> = ({ gameState, isCpuMode, startGame, resetGameState, setWinner, setGameToDraw }) => {
     const initialBoard: BoardDataArray = Array.from({ length: COLS }, () => Array.from({ length: ROWS }, (): BoardData => ({
         className: '',
         isPlayer1: false,
@@ -109,25 +110,26 @@ const GameBoard: React.FC<GameBoardProps> = ({ gameState, startGame, resetGameSt
     const [lastPutXValue, setLastPutXValue] = useState(-1);
     const pawnSpacesCount = COLS * ROWS;
     const isSomeoneWin = useMemo(() => gameState === GAME_STATES['player1IsWin'] || gameState === GAME_STATES['player2IsWin'], [gameState]);
+    const availableXSpaceList = useMemo(() => {
+        const res = [];
+        for (let i = 0; i < COLS; i++) {
+            if (!board[i][0]['isSet']) {
+                res.push(i);
+            }
+        }
+        return res;
+    }, [board]);
 
-    const updateCurrentGameState = (): number | void => {
-        if (turn + 1 >= pawnSpacesCount) {
-            setGameToDraw();
-        }
-        const winner = getIsPlayingOrWinner(board);
-        if (winner === 1 || winner === 2) {
-            return setWinner(winner);
-        }
-        return startGame();
+    const _getCpuNextMove = (): number => {
+        return availableXSpaceList[Math.floor(Math.random() * availableXSpaceList.length)]
     }
 
-    const clickHandler = (i: number): void => {
+    const _putPawn = (x: number) => {
         if (gameState !== GAME_STATES['isPlaying'] && gameState !== GAME_STATES['isReady']) return;
-        const putX = i % 7;
+        const putX = x % 7;
         setLastPutXValue(putX);
         let putY = 0;
         if (board[putX][putY]['isSet']) {
-            console.log('full');
             return;
         }
         while (board[putX][putY + 1] !== undefined && board[putX][putY + 1]['isSet'] === false) {
@@ -146,6 +148,22 @@ const GameBoard: React.FC<GameBoardProps> = ({ gameState, startGame, resetGameSt
         updateCurrentGameState();
     }
 
+    const updateCurrentGameState = (): number | void => {
+        if (turn + 1 >= pawnSpacesCount) {
+            return setGameToDraw();
+        }
+        const winner = getIsPlayingOrWinner(board);
+        if (winner === 1 || winner === 2) {
+            return setWinner(winner);
+        }
+        return startGame();
+    }
+
+    const clickHandler = (i: number): void => {
+        if (isCpuMode && !isPlayer1) return;
+        _putPawn(i);
+    }
+
     const restartGame = (): void => {
         setBoard(initialBoard);
         setTurn(0);
@@ -158,6 +176,17 @@ const GameBoard: React.FC<GameBoardProps> = ({ gameState, startGame, resetGameSt
             restartGame();
         }
     }, [gameState])
+
+    if (isCpuMode) {
+        useEffect(() => {
+            setTimeout(() => {
+                if (!isPlayer1) {
+                    const cpuNextMove = _getCpuNextMove();
+                    _putPawn(cpuNextMove);
+                }
+            }, 1000);
+        }, [isPlayer1]);
+    }
 
     return (
         <div className={styles.wrapper}>
@@ -174,8 +203,8 @@ const GameBoard: React.FC<GameBoardProps> = ({ gameState, startGame, resetGameSt
                     <PutButton key={i} onClick={() => clickHandler(i)} />
                 ))}
             </div>
-            {isSomeoneWin && <GameBoardWinner isPlayer1Win={gameState === GAME_STATES['player1IsWin']} playAgain={() => resetGameState()} />}
-            {gameState === GAME_STATES['isPlaying'] && <GameTurn isPlayer1={isPlayer1} />}
+            {isSomeoneWin && <GameBoardWinner isPlayer1Win={gameState === GAME_STATES['player1IsWin']} isCpuMode={isCpuMode} playAgain={() => resetGameState()} />}
+            {gameState === GAME_STATES['isPlaying'] && <GameTurn isPlayer1={isPlayer1} isCpuMode={isCpuMode} />}
             <GameMarker xValue={lastPutXValue} isPlayer1={isPlayer1} />
         </div>
     );

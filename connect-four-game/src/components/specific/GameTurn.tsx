@@ -3,10 +3,11 @@ import styles from "./GameTurn.module.css";
 
 interface GameTurnProps {
     isPlayer1: boolean;
+    isCpuMode: boolean;
 }
 
 
-const GameTurn: React.FC<GameTurnProps> = ({ isPlayer1 }) => {
+const GameTurn: React.FC<GameTurnProps> = ({ isPlayer1, isCpuMode }) => {
     const [remainingTime, setRemainingTime] = useState(30);
 
     useEffect(() => {
@@ -23,10 +24,15 @@ const GameTurn: React.FC<GameTurnProps> = ({ isPlayer1 }) => {
         return () => clearInterval(interval);
     }, [isPlayer1]);
 
-    const name = useMemo(() => isPlayer1 ? 'player 1' : 'player 2', [isPlayer1]);
+    const name = useMemo(() => {
+        if (isCpuMode) {
+            return isPlayer1 ? "your" : "cpu's";
+        }
+        return isPlayer1 ? "player 1's" : "player 2's";
+    }, [isPlayer1]);
 
     return <div className={`${styles.wrapper} ${isPlayer1 ? styles.isPlayer1 : styles.isPlayer2}`}>
-        <p className={`${styles.name} ${isPlayer1 ? styles.isPlayer1 : styles.isPlayer2}`}>{name}'s turn</p>
+        <p className={`${styles.name} ${isPlayer1 ? styles.isPlayer1 : styles.isPlayer2}`}>{name} turn</p>
         <p className={`${styles.secondWrapper} ${isPlayer1 ? styles.isPlayer1 : styles.isPlayer2}`}>
             <span className={styles.remainingTime}>{remainingTime}</span>
             <span className={styles.secondText}>s</span>

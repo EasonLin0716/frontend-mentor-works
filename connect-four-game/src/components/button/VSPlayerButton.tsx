@@ -5,7 +5,7 @@ import Button from '../common/BigButton';
 
 const VSCPUButton: React.FC = () => {
     return (
-        <Link to='/game'>
+        <Link to='/game/player'>
             <Button className={styles.wrapper}>
                 <span className={styles.text}>play vs player</span>
                 <img src='/images/player-vs-player.svg' alt='' />

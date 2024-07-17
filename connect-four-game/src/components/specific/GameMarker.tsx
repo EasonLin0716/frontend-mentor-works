@@ -6,7 +6,7 @@ interface GameMarkerProps {
     isPlayer1: boolean;
 }
 
-const GameMarker: React.FC<GameMarkerProps> = ({ xValue, isPlayer1 }) => {
+const GameMarker: React.FC<GameMarkerProps> = ({ xValue, isPlayer1, isCpuMode }) => {
     const renderingMarkerColor = isPlayer1 ? 'yellow' : 'red';
     return (
         xValue > -1 &&

@@ -8,7 +8,7 @@ const router = createBrowserRouter([
         element: <MainMenuScreen />,
     },
     {
-        path: '/game',
+        path: '/game/:mode',
         element: <GameScreen />,
     },
     {
