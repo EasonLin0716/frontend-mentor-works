@@ -1,21 +1,137 @@
 <script lang="ts">
-  import logo from '../assets/logo.svg';
-  import iconArrowDown from '../assets/icon-arrow-down.svg';
-  import iconMoon from '../assets/icon-moon.svg';
+  import MoonIcon from './MoonIcon.svelte';
+  const fontList: string[] = ['Sans Serif', 'Serif', 'Mono'];
+  let isDarkMode: boolean = false;
+  let activeFontIndex: number = 0;
+  $: activeFont = fontList[activeFontIndex];
 </script>
 
 <div class="header">
   <div class="left">
-    <img src={logo} alt="logo" width="32" height="36.5" />
+    <img src="/images/logo.svg" alt="logo" width="32" height="36.5" />
   </div>
   <div class="right">
-    <button class="font-toggler">
-      <img src={iconArrowDown} alt="arrow down icon" />
-    </button>
-    <button class="dark-mode-toggler">
-      <img src={iconMoon} alt="moon icon" />
-    </button>
+    <div class="font-toggler">
+      <button class="font-toggler-btn">
+        <span class="active-font">{activeFont}</span>
+        <img src="/images/icon-arrow-down.svg" alt="arrow down icon" />
+      </button>
+      <div class="font-selects">
+        {#each fontList as font, index}
+          <button
+            type="button"
+            on:click={() => (activeFontIndex = index)}
+            on:keydown={(event) => {
+              if (event.key === 'Enter' || event.key === ' ') {
+                activeFontIndex = index;
+              }
+            }}
+          >
+            {font}
+          </button>
+        {/each}
+      </div>
+    </div>
+    <hr />
+    <div class={'dark-mode-wrapper' + (isDarkMode ? ' is-dark' : '')}>
+      <button
+        class="dark-mode-toggler"
+        on:click={() => (isDarkMode = !isDarkMode)}
+      >
+        Toggler
+        <div class="circle"></div>
+      </button>
+      <MoonIcon {isDarkMode} />
+    </div>
   </div>
 </div>
 
-<style></style>
+<style>
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 737px;
+    width: 100%;
+    margin-bottom: 52px;
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+  }
+  .font-toggler {
+    position: relative;
+  }
+  .font-toggler-btn {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .active-font {
+    color: var(--black-200);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+  }
+  .dark-mode-toggler {
+    width: 40px;
+    height: 20px;
+    background-color: var(--gray-300);
+    font-size: 0;
+    border-radius: 10px;
+    position: relative;
+  }
+
+  .dark-mode-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .dark-mode-wrapper.is-dark .dark-mode-toggler {
+    background-color: var(--purple);
+  }
+
+  .dark-mode-wrapper.is-dark .circle {
+    transform: translateX(20px);
+  }
+
+  .circle {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background-color: var(--white);
+    border-radius: 50%;
+    top: 3px;
+    left: 3px;
+    transform: translateX(0);
+    will-change: transform;
+    transition: transform 0.3s;
+  }
+
+  .font-selects {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+    position: absolute;
+    top: 32px;
+    left: 0;
+    gap: 16px;
+    border-radius: 16px;
+    background-color: var(--white);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--gray-200);
+  }
+
+  .font-selects button {
+    font-size: 16px;
+  }
+  hr {
+    height: 32px;
+    width: 1px;
+    border-color: var(--gray-200);
+  }
+</style>

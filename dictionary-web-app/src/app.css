@@ -11,6 +11,34 @@
   --red: #ff5252;
 }
 
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter/Inter-VariableFont_slnt,wght.ttf')
+    format('truetype-variations');
+  font-weight: Regular Bold;
+}
+
+@font-face {
+  font-family: 'Serif';
+  src: url('/fonts/lora/Lora-VariableFont_wght.ttf')
+    format('truetype-variations');
+  font-weight: Regular Bold;
+}
+
+@font-face {
+  font-family: 'Iconsolata';
+  src: url('/fonts/iconsolata/Inconsolata-VariableFont_wdth,wght.ttf')
+    format('truetype-variations');
+  font-weight: Regular Bold;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif !important;
+}
+
 html,
 body,
 div,
@@ -141,6 +169,11 @@ button {
   cursor: pointer;
   outline: none;
   padding: 0;
+}
+input {
+  border: none;
+  outline: none;
+  background-color: transparent;
 }
 *,
 *::before,
