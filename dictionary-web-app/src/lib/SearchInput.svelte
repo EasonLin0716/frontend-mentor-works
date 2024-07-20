@@ -1,9 +1,55 @@
 <script lang="ts">
+  import { createEventDispatcher } from 'svelte';
+  import axios from 'axios';
+  let searchWord: string = '';
+  const dispatch = createEventDispatcher();
+  const handleSearchWord = async () => {
+    const word = searchWord;
+    try {
+      const { data } = await axios.get(
+        `https://api.dictionaryapi.dev/api/v2/entries/en/${searchWord}`,
+      );
+      if (data.length === 0) {
+        console.log('No definitions found');
+      }
+      const { word, phonetics, meanings, sourceUrls } = data[0];
+      let phonetic: string = '';
+      let pronunceAudio: string = '';
+      for (let i = 0; i < phonetics.length; i++) {
+        if (phonetics[i].text !== '' && phonetics[i].audio !== '') {
+          phonetic = phonetics[i].text;
+          pronunceAudio = phonetics[i].audio;
+          break;
+        }
+      }
+      if (phonetic === '') {
+        phonetic = phonetics[0].text;
+      }
+      dispatch('getWord', {
+        word,
+        phonetic,
+        pronunceAudio,
+        meanings,
+        sourceUrls,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 </script>
 
 <div class="search-input">
-  <input type="text" placeholder="Search for any word…" />
-  <button>
+  <input
+    bind:value={searchWord}
+    type="text"
+    placeholder="Search for any word…"
+    on:keydown={(event) => {
+      if (event.key === 'Enter') {
+        handleSearchWord();
+      }
+    }}
+  />
+  <button on:click={handleSearchWord}>
     <img src="/images/icon-search.svg" alt="search icon" />
   </button>
 </div>
