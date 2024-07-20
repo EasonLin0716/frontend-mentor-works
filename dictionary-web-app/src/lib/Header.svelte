@@ -4,11 +4,20 @@
   const fontList: string[] = ['Sans Serif', 'Serif', 'Mono'];
   const dispatch = createEventDispatcher();
   let isDarkMode: boolean = false;
+  let showFontSelects: boolean = false;
   let activeFontIndex: number = 0;
+  const hideFontSelects = (event: MouseEvent) => {
+    showFontSelects = false;
+  };
   $: activeFont = fontList[activeFontIndex];
   $: dispatch('fontChange', {
     newFontStyle: activeFont,
   });
+  $: if (showFontSelects) {
+    window.addEventListener('click', hideFontSelects);
+  } else {
+    window.removeEventListener('click', hideFontSelects);
+  }
 </script>
 
 <div class="header">
@@ -17,25 +26,36 @@
   </div>
   <div class="right">
     <div class="font-toggler">
-      <button class="font-toggler-btn">
+      <button
+        class="font-toggler-btn"
+        on:click|stopPropagation={() => (showFontSelects = !showFontSelects)}
+      >
         <span class="active-font">{activeFont}</span>
         <img src="/images/icon-arrow-down.svg" alt="arrow down icon" />
       </button>
-      <div class="font-selects">
-        {#each fontList as font, index}
-          <button
-            type="button"
-            on:click={() => (activeFontIndex = index)}
-            on:keydown={(event) => {
-              if (event.key === 'Enter' || event.key === ' ') {
-                activeFontIndex = index;
-              }
-            }}
-          >
-            {font}
-          </button>
-        {/each}
-      </div>
+      {#if showFontSelects}
+        <div
+          class="font-selects"
+          role="button"
+          tabindex="0"
+          on:click|stopPropagation
+          on:keydown|stopPropagation
+        >
+          {#each fontList as font, index}
+            <button
+              type="button"
+              on:click={() => (activeFontIndex = index)}
+              on:keydown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  activeFontIndex = index;
+                }
+              }}
+            >
+              {font}
+            </button>
+          {/each}
+        </div>
+      {/if}
     </div>
     <hr />
     <div class={'dark-mode-wrapper' + (isDarkMode ? ' is-dark' : '')}>
