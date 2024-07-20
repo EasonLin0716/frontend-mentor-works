@@ -1,9 +1,14 @@
 <script lang="ts">
+  import { createEventDispatcher } from 'svelte';
   import MoonIcon from './MoonIcon.svelte';
   const fontList: string[] = ['Sans Serif', 'Serif', 'Mono'];
+  const dispatch = createEventDispatcher();
   let isDarkMode: boolean = false;
   let activeFontIndex: number = 0;
   $: activeFont = fontList[activeFontIndex];
+  $: dispatch('fontChange', {
+    newFontStyle: activeFont,
+  });
 </script>
 
 <div class="header">
@@ -63,10 +68,13 @@
   }
   .font-toggler {
     position: relative;
+    width: 122px;
   }
   .font-toggler-btn {
     display: flex;
     align-items: center;
+    justify-content: end;
+    width: 100%;
     gap: 18px;
   }
   .active-font {
@@ -74,6 +82,8 @@
     font-size: 18px;
     font-weight: 700;
     line-height: 24px;
+    flex-grow: 1;
+    text-align: right;
   }
   .dark-mode-toggler {
     width: 40px;

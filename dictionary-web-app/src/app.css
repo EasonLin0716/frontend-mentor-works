@@ -13,13 +13,13 @@
 
 @font-face {
   font-family: 'Inter';
-  src: url('/fonts/inter/Inter-VariableFont_slnt,wght.ttf')
+  src: url('/fonts/inter/Inter-VariableFont_wght.ttf')
     format('truetype-variations');
   font-weight: Regular Bold;
 }
 
 @font-face {
-  font-family: 'Serif';
+  font-family: 'Lola';
   src: url('/fonts/lora/Lora-VariableFont_wght.ttf')
     format('truetype-variations');
   font-weight: Regular Bold;
@@ -27,16 +27,8 @@
 
 @font-face {
   font-family: 'Iconsolata';
-  src: url('/fonts/iconsolata/Inconsolata-VariableFont_wdth,wght.ttf')
-    format('truetype-variations');
+  src: url('/fonts/inconsolata/Inconsolata-VariableFont_wght.ttf');
   font-weight: Regular Bold;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif !important;
 }
 
 html,
@@ -179,4 +171,16 @@ input {
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+.is-sans-serif * {
+  font-family: 'Inter', sans-serif !important;
+}
+
+.is-serif * {
+  font-family: 'Lola', serif !important;
+}
+
+.is-mono * {
+  font-family: 'Iconsolata', mono !important;
 }
