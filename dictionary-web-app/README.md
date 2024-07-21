@@ -13,6 +13,7 @@ Here are some todos which I may, or may not do:
 ### High Priority
 
 - Define types: Since it's developed using TypeScript, types should be defined.
+- Block keep sending requests
 
 ### Probably won't do
 
