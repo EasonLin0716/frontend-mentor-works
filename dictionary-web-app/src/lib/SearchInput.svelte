@@ -58,7 +58,7 @@
     }}
   />
   <button on:click={handleSearchWord}>
-    <img src="/images/icon-search.svg" alt="search icon" />
+    <img src="./images/icon-search.svg" alt="search icon" />
   </button>
   {#if isEmpty}
     <span class="empty-error">Whoops, can’t be empty…</span>

@@ -29,7 +29,7 @@
 
 <div class="header">
   <div class="left">
-    <img src="/images/logo.svg" alt="logo" width="32" height="36.5" />
+    <img src="./images/logo.svg" alt="logo" width="32" height="36.5" />
   </div>
   <div class="right">
     <div class="font-toggler">
@@ -38,7 +38,7 @@
         on:click|stopPropagation={() => (showFontSelects = !showFontSelects)}
       >
         <span class="active-font">{activeFont}</span>
-        <img src="/images/icon-arrow-down.svg" alt="arrow down icon" />
+        <img src="./images/icon-arrow-down.svg" alt="arrow down icon" />
       </button>
       {#if showFontSelects}
         <div

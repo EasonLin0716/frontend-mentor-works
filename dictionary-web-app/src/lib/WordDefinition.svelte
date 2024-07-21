@@ -20,7 +20,7 @@
       {#if pronunceAudio}
         <button class="play-btn" on:click={handlePlayPronunceAudio}>
           <img
-            src="/images/icon-play.svg"
+            src="./images/icon-play.svg"
             alt="read phonetic"
             width="75"
             height="75"
