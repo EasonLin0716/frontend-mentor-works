@@ -17,14 +17,16 @@
       <span class="phonetic">{phonetic}</span>
     </div>
     <div class="right">
-      <button class="play-btn" on:click={handlePlayPronunceAudio}>
-        <img
-          src="/images/icon-play.svg"
-          alt="read phonetic"
-          width="75"
-          height="75"
-        />
-      </button>
+      {#if pronunceAudio}
+        <button class="play-btn" on:click={handlePlayPronunceAudio}>
+          <img
+            src="/images/icon-play.svg"
+            alt="read phonetic"
+            width="75"
+            height="75"
+          />
+        </button>
+      {/if}
     </div>
   </div>
   <div class="detail">
@@ -62,8 +64,10 @@
     {#each sourceUrls as url, index}
       <li>
         <p class="text">Source</p>
-        <span class="url">{url}</span>
-        <img src="./images/icon-link.svg" alt="" />
+        <a href={url} target="_blank">
+          <span class="url">{url}</span>
+          <img src="./images/icon-link.svg" alt="" />
+        </a>
       </li>
     {/each}
   </ul>
@@ -99,6 +103,8 @@
   .part-of-speech span {
     color: var(--black-200);
     font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
   }
   .part-of-speech hr {
     flex-grow: 1;
@@ -156,6 +162,12 @@
     font-size: 20px;
     font-weight: 700;
   }
+
+  .source-urls a {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
   .source-urls {
     padding: 19px 0;
     border-top: 1px solid var(--gray-200);
@@ -174,5 +186,63 @@
     color: var(--black-200, #2d2d2d);
     font-size: 14px;
     text-decoration-line: underline;
+  }
+
+  @media (max-width: 430px) {
+    .brief {
+      margin-bottom: 29px;
+    }
+    .word {
+      font-size: 32px;
+      line-height: 39px;
+    }
+    .phonetic {
+      font-size: 18px;
+      line-height: 24px;
+    }
+    .play-btn img {
+      width: 48px;
+      height: 48px;
+    }
+    .part-of-speech {
+      gap: 16px;
+      margin-bottom: 31px;
+    }
+    .part-of-speech span {
+      font-size: 18px;
+    }
+    .subtitle {
+      font-size: 16px;
+    }
+    .definitions {
+      margin-left: 18px;
+    }
+    .definitions-title {
+      margin-bottom: 17px;
+    }
+    .definition {
+      padding-left: 8px;
+    }
+    .definition p {
+      font-size: 15px;
+    }
+
+    .synonyms {
+      margin-top: 24px;
+    }
+    .synonyms li {
+      font-size: 16px;
+    }
+    .detail-wrapper {
+      padding-bottom: 33px;
+    }
+    .source-urls {
+      padding-top: 24px;
+      padding-bottom: 0;
+    }
+    .source-urls li {
+      gap: 8px;
+      flex-direction: column;
+    }
   }
 </style>

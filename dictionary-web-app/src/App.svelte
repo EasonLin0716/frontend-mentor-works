@@ -11,6 +11,7 @@
     sourceUrls: string[];
   };
   let fontStyle: string = 'is-sans-serif';
+  let showNoDefinitionFound: boolean = false;
   const wordData: WordData = {
     word: '',
     phonetic: '',
@@ -28,17 +29,21 @@
     wordData.pronunceAudio = event.detail.pronunceAudio;
     wordData.meanings = event.detail.meanings;
     wordData.sourceUrls = event.detail.sourceUrls;
+    showNoDefinitionFound = false;
   };
 </script>
 
 <div class={`wrapper ${fontStyle}`}>
   <Header on:fontChange={setFontStyle} />
   <main>
-    <SearchInput on:getWord={handleGetWord} />
-    {#if wordData.word !== ''}
-      <WordDefinition {...wordData} />
-    {:else}
+    <SearchInput
+      on:getWord={handleGetWord}
+      on:noFound={() => (showNoDefinitionFound = true)}
+    />
+    {#if showNoDefinitionFound === true}
       <NoDefinitionFound />
+    {:else if wordData.word !== ''}
+      <WordDefinition {...wordData} />
     {/if}
   </main>
 </div>
@@ -53,5 +58,16 @@
   main {
     max-width: 737px;
     width: 100%;
+  }
+  @media (max-width: 768px) {
+    .wrapper {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+  @media (max-width: 430px) {
+    .wrapper {
+      padding: 24px 24px 85px;
+    }
   }
 </style>

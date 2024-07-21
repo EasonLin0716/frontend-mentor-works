@@ -6,7 +6,7 @@
   let isDarkMode: boolean = false;
   let showFontSelects: boolean = false;
   let activeFontIndex: number = 0;
-  const hideFontSelects = (event: MouseEvent) => {
+  const hideFontSelects = () => {
     showFontSelects = false;
   };
   $: activeFont = fontList[activeFontIndex];
@@ -17,6 +17,13 @@
     window.addEventListener('click', hideFontSelects);
   } else {
     window.removeEventListener('click', hideFontSelects);
+  }
+  $: {
+    if (isDarkMode) {
+      document.documentElement.classList.add('is-dark');
+    } else {
+      document.documentElement.classList.remove('is-dark');
+    }
   }
 </script>
 
@@ -44,10 +51,14 @@
           {#each fontList as font, index}
             <button
               type="button"
-              on:click={() => (activeFontIndex = index)}
+              on:click={() => {
+                activeFontIndex = index;
+                hideFontSelects();
+              }}
               on:keydown={(event) => {
                 if (event.key === 'Enter' || event.key === ' ') {
                   activeFontIndex = index;
+                  hideFontSelects();
                 }
               }}
             >
@@ -129,10 +140,11 @@
   }
 
   .circle {
+    --circle-bg: #fff;
     position: absolute;
     width: 14px;
     height: 14px;
-    background-color: var(--white);
+    background-color: var(--circle-bg);
     border-radius: 50%;
     top: 3px;
     left: 3px;
@@ -149,6 +161,7 @@
     position: absolute;
     top: 32px;
     left: 0;
+    z-index: 1;
     gap: 16px;
     border-radius: 16px;
     background-color: var(--white);
@@ -163,5 +176,11 @@
     height: 32px;
     width: 1px;
     border-color: var(--gray-200);
+  }
+
+  @media (max-width: 430px) {
+    .header {
+      margin-bottom: 24px;
+    }
   }
 </style>

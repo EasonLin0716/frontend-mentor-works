@@ -11,6 +11,14 @@
   --red: #ff5252;
 }
 
+html.is-dark {
+  color-scheme: dark;
+  --black-200: #fff;
+  --white: #050505;
+  --gray-100: #1f1f1f;
+  --gray-300: #757575;
+}
+
 @font-face {
   font-family: 'Inter';
   src: url('/fonts/inter/Inter-VariableFont_wght.ttf')
