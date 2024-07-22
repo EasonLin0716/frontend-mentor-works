@@ -24,7 +24,7 @@ const GameTurn: React.FC<GameTurnProps> = ({ isPlayer1, isCpuMode }) => {
         return () => clearInterval(interval);
     }, [isPlayer1]);
 
-    const name = useMemo(() => {
+    const name = useMemo<string>(() => {
         if (isCpuMode) {
             return isPlayer1 ? "your" : "cpu's";
         }

@@ -14,10 +14,10 @@ interface GameScreenContentProps {
 
 const GameScreenContent: React.FC<GameScreenContentProps> = ({ gameState, startGame, resetGameState, setWinner, setGameToDraw }) => {
     const { mode } = useParams<{ mode: string }>();
-    const isCpuMode = useMemo(() => mode === 'cpu', [mode]);
+    const isCpuMode = useMemo<boolean>(() => mode === 'cpu', [mode]);
     const [player1Score, setPlayer1Score] = useState<number>(0);
     const [player2Score, setPlayer2Score] = useState<number>(0);
-    const addScore = (winner: number) => {
+    const addScore = (winner: number): void => {
         if (winner === 1) {
             setPlayer1Score(player1Score + 1);
         } else {

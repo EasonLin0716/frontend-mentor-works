@@ -9,7 +9,7 @@ interface GameBoardWinnerProps {
 }
 
 const GameBoardWinner: React.FC<GameBoardWinnerProps> = ({ isPlayer1Win, isCpuMode, playAgain }) => {
-    const name = useMemo(() => {
+    const name = useMemo<string>(() => {
         if (isCpuMode) {
             return isPlayer1Win ? "you" : "cpu";
         }

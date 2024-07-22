@@ -13,7 +13,7 @@ const GameScreen: React.FC = () => {
     const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
     const [gameState, setGameState] = useState<number>(GAME_STATES.isReady);
     const nodeRef = useRef<HTMLDivElement>(null);
-    const restartGameHandler = () => {
+    const restartGameHandler = (): void => {
         setGameState(GAME_STATES.isReady);
     };
     return (
