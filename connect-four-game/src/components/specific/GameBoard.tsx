@@ -104,11 +104,11 @@ const GameBoard: React.FC<GameBoardProps> = ({ gameState, isCpuMode, startGame, 
         isSet: false,
         isCircled: false,
     })));
-    const [board, setBoard] = useState(initialBoard);
-    const [turn, setTurn] = useState(0);
-    const [isPlayer1, setIsPlayer1] = useState(true);
-    const [lastPutXValue, setLastPutXValue] = useState(-1);
-    const pawnSpacesCount = COLS * ROWS;
+    const [board, setBoard] = useState<BoardDataArray>(initialBoard);
+    const [turn, setTurn] = useState<number>(0);
+    const [isPlayer1, setIsPlayer1] = useState<boolean>(true);
+    const [lastPutXValue, setLastPutXValue] = useState<number>(-1);
+    const pawnSpacesCount: number = COLS * ROWS;
     const isSomeoneWin = useMemo(() => gameState === GAME_STATES['player1IsWin'] || gameState === GAME_STATES['player2IsWin'], [gameState]);
     const availableXSpaceList = useMemo(() => {
         const res = [];

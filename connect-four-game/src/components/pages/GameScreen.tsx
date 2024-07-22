@@ -10,8 +10,8 @@ import {
 import { GAME_STATES } from '../../constants';
 
 const GameScreen: React.FC = () => {
-    const [menuIsOpen, setMenuIsOpen] = useState(false);
-    const [gameState, setGameState] = useState(GAME_STATES.isReady);
+    const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
+    const [gameState, setGameState] = useState<number>(GAME_STATES.isReady);
     const nodeRef = useRef<HTMLDivElement>(null);
     const restartGameHandler = () => {
         setGameState(GAME_STATES.isReady);

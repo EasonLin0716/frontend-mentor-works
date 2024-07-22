@@ -8,7 +8,7 @@ interface GameTurnProps {
 
 
 const GameTurn: React.FC<GameTurnProps> = ({ isPlayer1, isCpuMode }) => {
-    const [remainingTime, setRemainingTime] = useState(30);
+    const [remainingTime, setRemainingTime] = useState<number>(30);
 
     useEffect(() => {
         setRemainingTime(30);
