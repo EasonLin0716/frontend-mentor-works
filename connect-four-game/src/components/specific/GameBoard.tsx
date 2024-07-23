@@ -181,7 +181,7 @@ const GameBoard: React.FC<GameBoardProps> = ({ gameState, isCpuMode, startGame, 
         useEffect(() => {
             setTimeout(() => {
                 if (!isPlayer1) {
-                    const cpuNextMove = _getCpuNextMove();
+                    const cpuNextMove: number = _getCpuNextMove();
                     _putPawn(cpuNextMove);
                 }
             }, 1000);

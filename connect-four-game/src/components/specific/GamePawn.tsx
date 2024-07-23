@@ -8,7 +8,7 @@ interface GamePawnProps {
 }
 
 const GamePawn: React.FC<GamePawnProps> = ({ className, isPlayer1, isCircled }) => {
-    const combinedClassNames = [
+    const combinedClassNames: string = [
         className,
         styles.wrapper,
         isPlayer1 ? styles.isPlayer1 : styles.isPlayer2

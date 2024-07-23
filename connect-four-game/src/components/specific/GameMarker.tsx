@@ -7,7 +7,7 @@ interface GameMarkerProps {
 }
 
 const GameMarker: React.FC<GameMarkerProps> = ({ xValue, isPlayer1 }) => {
-    const renderingMarkerColor = isPlayer1 ? 'yellow' : 'red';
+    const renderingMarkerColor: string = isPlayer1 ? 'yellow' : 'red';
     return (
         xValue > -1 &&
         <div className={`${styles.wrapper} ${styles[`xCor${xValue}`]}`}>

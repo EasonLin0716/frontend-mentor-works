@@ -12,9 +12,8 @@ Here are some todos which I may, or may not do:
 
 ### High Priority
 
-- Define types: Since it's developed using TypeScript, types should be defined.
+- Better CPU behaviors
 
 ### Someday
 
-- Better CPU behaviors
 - Playing online (Using WebSocket, so a backend server is needed)
