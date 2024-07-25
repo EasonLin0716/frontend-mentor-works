@@ -1,0 +1,6 @@
+@import './_colors.css';
+@import './_fonts.css';
+
+body {
+  font-family: 'Jost', sans-serif;
+}
