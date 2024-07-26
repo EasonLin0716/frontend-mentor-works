@@ -1,5 +1,6 @@
 <template>
     <div>
+        <AppButton theme="purple">Add Feedback</AppButton>
         Frontend Mentor
         Feedback Board
 

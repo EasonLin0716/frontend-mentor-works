@@ -1,0 +1,31 @@
+.is-purple {
+  background-color: var(--purple);
+}
+
+.is-purple:hover {
+  background-color: var(--purple-hover);
+}
+
+.is-blue {
+  background-color: var(--blue-200);
+}
+
+.is-blue:hover {
+  background-color: var(--blue-200-hover);
+}
+
+.is-gray {
+  background-color: var(--gray-300);
+}
+
+.is-gray:hover {
+  background-color: var(--gray-300-hover);
+}
+
+.is-orange {
+  background-color: var(--orange-200);
+}
+
+.is-orange:hover {
+  background-color: var(--orange-200-hover);
+}

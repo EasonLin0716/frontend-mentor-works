@@ -1,12 +1,17 @@
 :root {
   --purple: #ad1fea;
+  --purple-hover: #c75af6;
   --blue-100: #62bcfa;
   --blue-200: #4661e6;
+  --blue-200-hover: #7c91f9;
   --blue-300: #353f68;
   --white: #fff;
   --gray-100: #f2f4ff;
   --gray-200: #f7f8fd;
   --gray-300: #3a4374;
+  --gray-300-hover: #656ea3;
   --gray-400: #647196;
-  --orange: #f49f85;
+  --orange-100: #f49f85;
+  --orange-200: #d73737;
+  --orange-200-hover: #e98888;
 }
