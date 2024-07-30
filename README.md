@@ -1,3 +1,3 @@
 # Frontend Mentor Works
 
-[Github Pages](https://easonlin0716.github.io/frontend-mentor-works/)
+This repo is deprecated and is moved to [fmw-nx](https://github.com/EasonLin0716/fmw-nx).
